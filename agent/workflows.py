@@ -265,6 +265,98 @@ class Workflow:
             time.sleep(0.4)
         raise TimeoutError("签到卡片仍可领取或页面未稳定")
 
+    def activity(self, image):
+        result = self.reco("DailyActivity", image)
+        if not result or not re.fullmatch(r"\d{1,3}", result.best_result.text):
+            raise RuntimeError("无法读取日常活跃度")
+        value = int(result.best_result.text)
+        if value > 100:
+            raise RuntimeError("日常活跃度数值超出预期范围")
+        return value
+
+    def row_text(self, image, button_box):
+        result = self.context.run_recognition("DailyTaskLabel", image, {
+            "DailyTaskLabel": {"roi": [630, max(108, button_box.y - 15), 445,
+                                      min(54, 605 - max(108, button_box.y - 15))]}})
+        return result.best_result.text if result and result.hit else None
+
+    def verify_daily_claim(self, before, title, button_box):
+        deadline = time.monotonic() + 8
+        stable_change = 0
+        while time.monotonic() < deadline:
+            image = self.frame()
+            if not self.reco("DailyActive", image):
+                time.sleep(0.3)
+                continue
+            after = self.activity(image)
+            if after > before:
+                return
+            # At the cap, verify that the claimed row moves away, or its
+            # status changes to 已领取. Require multiple stable observations.
+            if before == after == 100:
+                text = self.row_text(image, button_box)
+                claimed = self.context.run_recognition("DailyTaskLabel", image, {
+                    "DailyTaskLabel": {"roi": [1090, max(108, button_box.y - 10), 90, 45],
+                                       "expected": "^已领取$"}})
+                changed = (text is not None and text != title) or (claimed and claimed.hit)
+                stable_change = stable_change + 1 if changed else 0
+                if stable_change >= 3:
+                    return
+            time.sleep(0.3)
+        raise RuntimeError("日常任务点击后未观察到活跃度增加或已领取状态")
+
+    def daily(self):
+        self.navigate("MenuPage")
+        self.act("OpenF5")
+        self.wait_for(["DailyPage"])
+        self.act("DailySelectTab")
+        self.wait_for(["DailyActive"])
+        self.act("DailyScrollUp")
+        scrolls = claims = 0
+        while True:
+            image = self.frame()
+            if not self.reco("DailyActive", image):
+                raise RuntimeError("日常活跃页面发生变化")
+            pending = self.reco("DailyClaim", image)
+            if pending:
+                if claims >= 20:
+                    raise RuntimeError("日常领取次数超限")
+                before = self.activity(image)
+                title = self.row_text(image, pending.box)
+                if not title:
+                    raise RuntimeError("无法识别待领取的日常任务名称")
+                self.act("DailyClaim")
+                self.verify_daily_claim(before, title, pending.box)
+                claims += 1
+                self.log("日常任务奖励已领取：" + title)
+                # Claiming can reorder rows above the current viewport.
+                self.act("DailyScrollUp")
+                scrolls = 0
+                continue
+            if self.reco("DailyAtBottom", image):
+                break
+            if scrolls >= 16:
+                raise RuntimeError("未确认日常列表底部，停止滚动")
+            self.act("DailyScroll")
+            scrolls += 1
+        chests = 0
+        for level in (20, 40, 60, 80, 100):
+            image = self.frame()
+            node = "DailyChest" + str(level)
+            if self.activity(image) < level or not self.reco(node, image):
+                continue
+            self.act(node)
+            self.wait_for(["RewardPopup"])
+            self.act("RewardPopup")
+            self.wait_for(["DailyActive"])
+            if self.reco(node, self.frame()):
+                raise RuntimeError("活跃宝箱领取后仍显示可领取")
+            chests += 1
+            self.log(f"{level} 活跃度宝箱已领取")
+        self.act("CloseDaily")
+        self.wait_for(["MenuPage"])
+        self.log(f"日常奖励检查完成：领取任务 {claims} 项，宝箱 {chests} 个")
+
 
 class RunRoutine(CustomAction):
     def run(self, context, argv):
@@ -293,6 +385,8 @@ class RunRoutine(CustomAction):
                 workflow.mail()
             elif kind == "signin":
                 workflow.signin()
+            elif kind == "daily":
+                workflow.daily()
             else:
                 raise ValueError("未知任务类型：" + str(kind))
             return True

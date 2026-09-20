@@ -77,5 +77,16 @@
             "Popcorn": true,
             "priority": "Cookie"
         }
+    },
+    "ClaimDaily": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "daily"
+        },
+        "focus": {
+            "Node.Action.Failed": "日常奖励任务未完成，请查看日志。"
+        }
     }
 }

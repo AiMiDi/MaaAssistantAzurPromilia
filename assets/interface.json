@@ -66,6 +66,12 @@
             "description": "只领取已识别到的当前签到卡片。活动入口变化时会停止。"
         },
         {
+            "name": "ClaimDaily",
+            "label": "日常任务与活跃度奖励（测试）",
+            "entry": "ClaimDaily",
+            "description": "检查日常列表至底部，只点击领取按钮；检查20～100活跃宝箱，验证获得弹窗。不点击前往，不执行战斗。"
+        },
+        {
             "name": "HomeCollect",
             "label": "家园 · 仅一键收获",
             "entry": "HomeCollect"

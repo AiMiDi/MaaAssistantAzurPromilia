@@ -1,39 +1,11 @@
 {
-    "DailyChest": {
-        "action": "LongPress",
-        "duration": 120,
-        "post_delay": 1000,
-        "recognition": "And",
-        "all_of": [
-            "SupportedFrame",
-            {
-                "recognition": "And",
-                "all_of": [
-                    "DailyPage",
-                    {
-                        "recognition": "TemplateMatch",
-                        "template": "daily/chest_ready.png",
-                        "roi": [
-                            495,
-                            622,
-                            625,
-                            65
-                        ],
-                        "threshold": 0.8
-                    }
-                ],
-                "box_index": 1
-            }
-        ],
-        "box_index": 1
-    },
     "DailyScroll": {
         "action": "Scroll",
         "target": [
             930,
             405
         ],
-        "dy": -360,
+        "dy": -1200,
         "post_delay": 800,
         "recognition": "And",
         "all_of": [
@@ -41,7 +13,7 @@
             {
                 "recognition": "And",
                 "all_of": [
-                    "DailyPage"
+                    "DailyActive"
                 ]
             }
         ],
@@ -82,7 +54,7 @@
             {
                 "recognition": "And",
                 "all_of": [
-                    "DailyPage",
+                    "DailyActive",
                     {
                         "recognition": "OCR",
                         "expected": "^领取$",
@@ -99,5 +71,272 @@
             }
         ],
         "box_index": 1
+    },
+    "DailyScrollUp": {
+        "action": "Scroll",
+        "target": [
+            930,
+            405
+        ],
+        "dy": 6000,
+        "post_delay": 800,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "DailyActive"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "DailyActive": {
+        "recognition": "And",
+        "all_of": [
+            "DailyPage",
+            {
+                "recognition": "TemplateMatch",
+                "template": "daily/tab_active.png",
+                "roi": [
+                    475,
+                    15,
+                    155,
+                    35
+                ],
+                "threshold": 0.8
+            }
+        ]
+    },
+    "DailyAtBottom": {
+        "recognition": "And",
+        "all_of": [
+            "DailyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    1201,
+                    587,
+                    3,
+                    12
+                ],
+                "lower": [
+                    240,
+                    240,
+                    240
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "count": 8
+            }
+        ]
+    },
+    "DailySelectTab": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "DailyPage"
+        ],
+        "action": "Click",
+        "target": [
+            550,
+            31
+        ],
+        "post_delay": 700
+    },
+    "DailyActivity": {
+        "recognition": "OCR",
+        "expected": "^[0-9]{1,3}$",
+        "roi": [
+            240,
+            635,
+            57,
+            43
+        ]
+    },
+    "DailyTaskLabel": {
+        "recognition": "OCR",
+        "expected": ".+",
+        "roi": [
+            631,
+            110,
+            446,
+            490
+        ]
+    },
+    "DailyChest20": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "DailyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    544,
+                    639,
+                    16,
+                    17
+                ],
+                "lower": [
+                    220,
+                    50,
+                    50
+                ],
+                "upper": [
+                    255,
+                    170,
+                    180
+                ],
+                "count": 8
+            }
+        ],
+        "action": "Click",
+        "target": [
+            531,
+            658
+        ],
+        "post_delay": 300
+    },
+    "DailyChest40": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "DailyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    685,
+                    639,
+                    16,
+                    17
+                ],
+                "lower": [
+                    220,
+                    50,
+                    50
+                ],
+                "upper": [
+                    255,
+                    170,
+                    180
+                ],
+                "count": 8
+            }
+        ],
+        "action": "Click",
+        "target": [
+            672,
+            658
+        ],
+        "post_delay": 300
+    },
+    "DailyChest60": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "DailyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    825,
+                    639,
+                    16,
+                    17
+                ],
+                "lower": [
+                    220,
+                    50,
+                    50
+                ],
+                "upper": [
+                    255,
+                    170,
+                    180
+                ],
+                "count": 8
+            }
+        ],
+        "action": "Click",
+        "target": [
+            812,
+            658
+        ],
+        "post_delay": 300
+    },
+    "DailyChest80": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "DailyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    965,
+                    639,
+                    16,
+                    17
+                ],
+                "lower": [
+                    220,
+                    50,
+                    50
+                ],
+                "upper": [
+                    255,
+                    170,
+                    180
+                ],
+                "count": 8
+            }
+        ],
+        "action": "Click",
+        "target": [
+            952,
+            658
+        ],
+        "post_delay": 300
+    },
+    "DailyChest100": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "DailyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    1105,
+                    639,
+                    16,
+                    17
+                ],
+                "lower": [
+                    220,
+                    50,
+                    50
+                ],
+                "upper": [
+                    255,
+                    170,
+                    180
+                ],
+                "count": 8
+            }
+        ],
+        "action": "Click",
+        "target": [
+            1092,
+            658
+        ],
+        "post_delay": 300
     }
 }
