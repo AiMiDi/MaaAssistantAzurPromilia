@@ -53,6 +53,8 @@ powershell -ExecutionPolicy Bypass -File .\setup.ps1
 
 ## 项目方向
 
+已按 CBT3 Wiki 整理[家园资料与商品配方](docs/WIKI_REFERENCE.md)、[后续接入计划](docs/HOME_PREPARATION_PLAN.md)和[数据来源及离线规划用法](docs/DATA_SOURCES.md)。资料准备和规划预览不会操作游戏，尚未接通的自动化能力见计划中的验收项。
+
 采用“识别页面 → 执行操作 → 验证结果”的任务流程。运行库、截图、日志、账号信息与本地配置不进入版本控制。
 
 开发结构参考 [MaaEnd](https://github.com/MaaEnd/MaaEnd) 的模块化任务与状态识别设计；游戏节点根据蓝色星原实际画面重新实现。

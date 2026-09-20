@@ -1,0 +1,3573 @@
+{
+  "recipes": [
+    {
+      "recipe_id": "301001",
+      "item_id": "300001",
+      "name": "硬木",
+      "station": "元素石炉",
+      "ingredients": [
+        {
+          "item_id": "300000",
+          "name": "软木",
+          "quantity": 6
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 2
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 10
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 2
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/301001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_wood02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "301002",
+      "item_id": "350006",
+      "name": "木炭",
+      "station": "熔炉",
+      "ingredients": [],
+      "optional_ingredients": [
+        {
+          "item_id": "307004",
+          "name": "霜狼茅",
+          "quantity": 5
+        }
+      ],
+      "requires_material_choice": true,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 11
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 50
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 11
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 300,
+      "unlock": "科技：基础工业II·订单",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/301002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_woodmaterial99.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "302001",
+      "item_id": "350000",
+      "name": "软木板",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "300000",
+          "name": "软木",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 11
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 80
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 11
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 300,
+      "unlock": "科技：基础工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/302001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_woodmaterial01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "302002",
+      "item_id": "350001",
+      "name": "硬木板",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "300001",
+          "name": "硬木",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 21
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 160
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 21
+        }
+      },
+      "base_seconds": 12,
+      "max_batch": 300,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/302002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_woodmaterial02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "303001",
+      "item_id": "303001",
+      "name": "闪锡矿",
+      "station": "元素石炉",
+      "ingredients": [
+        {
+          "item_id": "303000",
+          "name": "风铜矿",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [
+        {
+          "item_id": "307006",
+          "name": "喵须草",
+          "quantity": 5
+        }
+      ],
+      "requires_material_choice": true,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 2
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 10
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 2
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/303001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_ore07.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "303002",
+      "item_id": "303004",
+      "name": "镜铁矿",
+      "station": "元素石炉",
+      "ingredients": [
+        {
+          "item_id": "303001",
+          "name": "闪锡矿",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [
+        {
+          "item_id": "307006",
+          "name": "喵须草",
+          "quantity": 5
+        }
+      ],
+      "requires_material_choice": true,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 3
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 30
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 3
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/303002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_ore16.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "303003",
+      "item_id": "303007",
+      "name": "白银矿",
+      "station": "元素石炉",
+      "ingredients": [
+        {
+          "item_id": "303004",
+          "name": "镜铁矿",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [
+        {
+          "item_id": "307006",
+          "name": "喵须草",
+          "quantity": 5
+        }
+      ],
+      "requires_material_choice": true,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 20
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 50
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 20
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：高级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/303003/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_ore06.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "303004",
+      "item_id": "312001",
+      "name": "细碎的星结之辉",
+      "station": "元素石炉",
+      "ingredients": [
+        {
+          "item_id": "301000",
+          "name": "尘石",
+          "quantity": 15
+        }
+      ],
+      "optional_ingredients": [
+        {
+          "item_id": "307006",
+          "name": "喵须草",
+          "quantity": 5
+        }
+      ],
+      "requires_material_choice": true,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 1
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 5
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 1
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：基础工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/303004/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_capturematerial01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "304001",
+      "item_id": "353000",
+      "name": "风铜锭",
+      "station": "熔炉",
+      "ingredients": [
+        {
+          "item_id": "303000",
+          "name": "风铜矿",
+          "quantity": 3
+        },
+        {
+          "item_id": "350006",
+          "name": "木炭",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 33
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 92
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 33
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 300,
+      "unlock": "科技：基础工业II·订单",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/304001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_metal03.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "304003",
+      "item_id": "353002",
+      "name": "镜铁锭",
+      "station": "熔炼铺",
+      "ingredients": [
+        {
+          "item_id": "303004",
+          "name": "镜铁矿",
+          "quantity": 3
+        },
+        {
+          "item_id": "350006",
+          "name": "木炭",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 60
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 360
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 60
+        }
+      },
+      "base_seconds": 12,
+      "max_batch": 300,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/304003/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_metal10.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "304005",
+      "item_id": "353005",
+      "name": "白银锭",
+      "station": "熔炼铺",
+      "ingredients": [
+        {
+          "item_id": "303007",
+          "name": "白银矿",
+          "quantity": 3
+        },
+        {
+          "item_id": "350006",
+          "name": "木炭",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 161
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 720
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 161
+        }
+      },
+      "base_seconds": 24,
+      "max_batch": 300,
+      "unlock": "科技：高级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/304005/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_metal01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "304006",
+      "item_id": "353016",
+      "name": "青铜锭",
+      "station": "熔炉",
+      "ingredients": [
+        {
+          "item_id": "303001",
+          "name": "闪锡矿",
+          "quantity": 2
+        },
+        {
+          "item_id": "350006",
+          "name": "木炭",
+          "quantity": 1
+        },
+        {
+          "item_id": "303000",
+          "name": "风铜矿",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 12
+        }
+      },
+      "base_seconds": 6,
+      "max_batch": 300,
+      "unlock": "科技：初级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/304006/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_metal07.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "305001",
+      "item_id": "301001",
+      "name": "坚岩",
+      "station": "元素石炉",
+      "ingredients": [
+        {
+          "item_id": "301000",
+          "name": "尘石",
+          "quantity": 6
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 2
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 10
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 2
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/305001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_stone02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "306001",
+      "item_id": "351000",
+      "name": "尘石砖",
+      "station": "熔炉",
+      "ingredients": [
+        {
+          "item_id": "301000",
+          "name": "尘石",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 11
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 50
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 11
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 300,
+      "unlock": "科技：基础工业II·订单",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/306001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_stonematerial01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "306002",
+      "item_id": "351001",
+      "name": "坚岩砖",
+      "station": "熔炼铺",
+      "ingredients": [
+        {
+          "item_id": "301001",
+          "name": "坚岩",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 21
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 80
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 21
+        }
+      },
+      "base_seconds": 12,
+      "max_batch": 300,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/306002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_stonematerial02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "307001",
+      "item_id": "302002",
+      "name": "完整的兽皮",
+      "station": "元素石炉",
+      "ingredients": [
+        {
+          "item_id": "302001",
+          "name": "破损的兽皮",
+          "quantity": 5
+        },
+        {
+          "item_id": "302011",
+          "name": "星质原液",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 3
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 30
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 3
+        }
+      },
+      "base_seconds": 12,
+      "max_batch": 100,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/307001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_skin02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "308001",
+      "item_id": "313001",
+      "name": "粗糙皮革",
+      "station": "制革台",
+      "ingredients": [
+        {
+          "item_id": "302001",
+          "name": "破损的兽皮",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 11
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 100
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 11
+        }
+      },
+      "base_seconds": 6,
+      "max_batch": 100,
+      "unlock": "科技：初级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/308001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_leather01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "308002",
+      "item_id": "313002",
+      "name": "精鞣皮革",
+      "station": "制革铺",
+      "ingredients": [
+        {
+          "item_id": "302002",
+          "name": "完整的兽皮",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 16
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 200
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 16
+        }
+      },
+      "base_seconds": 12,
+      "max_batch": 100,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/308002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_leather02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "309001",
+      "item_id": "313011",
+      "name": "云棉布",
+      "station": "纺织铺",
+      "ingredients": [
+        {
+          "item_id": "305902",
+          "name": "云棉",
+          "quantity": 6
+        },
+        {
+          "item_id": "302012",
+          "name": "细密软绒",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 18
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 300
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 18
+        }
+      },
+      "base_seconds": 24,
+      "max_batch": 100,
+      "unlock": "科技：御灵巧匠VI·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/309001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_textile01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "309002",
+      "item_id": "313013",
+      "name": "月麻布",
+      "station": "纺车",
+      "ingredients": [
+        {
+          "item_id": "305901",
+          "name": "月麻",
+          "quantity": 6
+        },
+        {
+          "item_id": "302012",
+          "name": "细密软绒",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 13
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 200
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 13
+        }
+      },
+      "base_seconds": 6,
+      "max_batch": 100,
+      "unlock": "科技：御灵巧匠IV·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/309002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_textile03.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400101",
+      "item_id": "1400101",
+      "name": "普通金麦面粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400101",
+          "name": "普通金麦",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 6
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400101/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400102",
+      "item_id": "1400102",
+      "name": "优质金麦面粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400102",
+          "name": "优质金麦",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 7
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400102/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400103",
+      "item_id": "1400103",
+      "name": "卓越金麦面粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400103",
+          "name": "卓越金麦",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 9
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400103/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400104",
+      "item_id": "1400104",
+      "name": "完美金麦面粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400104",
+          "name": "完美金麦",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 12
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400104/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400105",
+      "item_id": "1400105",
+      "name": "臻品金麦面粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400105",
+          "name": "臻品金麦",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 21
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400105/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400201",
+      "item_id": "1400201",
+      "name": "普通新月薯泥",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400201",
+          "name": "普通新月薯",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 24
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400201/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct03.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400202",
+      "item_id": "1400202",
+      "name": "优质新月薯泥",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400202",
+          "name": "优质新月薯",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 27
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400202/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct03.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400203",
+      "item_id": "1400203",
+      "name": "卓越新月薯泥",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400203",
+          "name": "卓越新月薯",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 51
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400203/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct03.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400204",
+      "item_id": "1400204",
+      "name": "完美新月薯泥",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400204",
+          "name": "完美新月薯",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 36
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400204/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct03.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400205",
+      "item_id": "1400205",
+      "name": "臻品新月薯泥",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400205",
+          "name": "臻品新月薯",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 84
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400205/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct03.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400301",
+      "item_id": "1400301",
+      "name": "普通狼椒粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400701",
+          "name": "普通狼椒",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 36
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400301/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400302",
+      "item_id": "1400302",
+      "name": "优质狼椒粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400702",
+          "name": "优质狼椒",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 42
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400302/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400303",
+      "item_id": "1400303",
+      "name": "卓越狼椒粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400703",
+          "name": "卓越狼椒",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 54
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400303/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400304",
+      "item_id": "1400304",
+      "name": "完美狼椒粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400704",
+          "name": "完美狼椒",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 78
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400304/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400305",
+      "item_id": "1400305",
+      "name": "臻品狼椒粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400705",
+          "name": "臻品狼椒",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 126
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400305/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct02.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400401",
+      "item_id": "1400401",
+      "name": "普通红茄酱",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400501",
+          "name": "普通红茄",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 48
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400401/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct05.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400402",
+      "item_id": "1400402",
+      "name": "优质红茄酱",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400502",
+          "name": "优质红茄",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 54
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400402/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct05.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400403",
+      "item_id": "1400403",
+      "name": "卓越红茄酱",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400503",
+          "name": "卓越红茄",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 72
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400403/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct05.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400404",
+      "item_id": "1400404",
+      "name": "完美红茄酱",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400504",
+          "name": "完美红茄",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 105
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400404/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct05.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400405",
+      "item_id": "1400405",
+      "name": "臻品红茄酱",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400505",
+          "name": "臻品红茄",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 165
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400405/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct05.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400501",
+      "item_id": "1400501",
+      "name": "普通玉米粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400301",
+          "name": "普通丰盈玉米",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 12
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400501/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct04.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400502",
+      "item_id": "1400502",
+      "name": "优质玉米粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400302",
+          "name": "优质丰盈玉米",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 15
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400502/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct04.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400503",
+      "item_id": "1400503",
+      "name": "卓越玉米粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400303",
+          "name": "卓越丰盈玉米",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 18
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400503/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct04.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400504",
+      "item_id": "1400504",
+      "name": "完美玉米粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400304",
+          "name": "完美丰盈玉米",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 27
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400504/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct04.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400505",
+      "item_id": "1400505",
+      "name": "臻品玉米粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "400305",
+          "name": "臻品丰盈玉米",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 42
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400505/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct04.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400601",
+      "item_id": "1400601",
+      "name": "普通派派粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "401001",
+          "name": "普通派派",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 36
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理III",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400601/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct06.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400602",
+      "item_id": "1400602",
+      "name": "优质派派粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "401002",
+          "name": "优质派派",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 42
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理III",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400602/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct06.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400603",
+      "item_id": "1400603",
+      "name": "卓越派派粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "401003",
+          "name": "卓越派派",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 54
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理III",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400603/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct06.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400604",
+      "item_id": "1400604",
+      "name": "完美派派粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "401004",
+          "name": "完美派派",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 78
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理III",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400604/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct06.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400605",
+      "item_id": "1400605",
+      "name": "臻品派派粉",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "401005",
+          "name": "臻品派派",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 126
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理III",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400605/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_millproduct06.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "400701",
+      "item_id": "353006",
+      "name": "盐",
+      "station": "磨坊",
+      "ingredients": [
+        {
+          "item_id": "301000",
+          "name": "尘石",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 11
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 180
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 11
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 100,
+      "unlock": "科技：初级料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/400701/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_metal08.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "501001",
+      "item_id": "1000001",
+      "name": "普通的星结卡",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "312001",
+          "name": "细碎的星结之辉",
+          "quantity": 2
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 3
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 28
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 3
+        }
+      },
+      "base_seconds": 1,
+      "max_batch": 50,
+      "unlock": "默认解锁",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/501001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_kibocard01.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "501002",
+      "item_id": "1000002",
+      "name": "奇特的星结卡",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "312001",
+          "name": "细碎的星结之辉",
+          "quantity": 2
+        },
+        {
+          "item_id": "317001",
+          "name": "纤维",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 17
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 90
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 17
+        }
+      },
+      "base_seconds": 2,
+      "max_batch": 50,
+      "unlock": "任务：初见新芽山谷",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/501002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_kibocard02.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "501003",
+      "item_id": "1000007",
+      "name": "精美的星结卡",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "312001",
+          "name": "细碎的星结之辉",
+          "quantity": 3
+        },
+        {
+          "item_id": "317001",
+          "name": "纤维",
+          "quantity": 2
+        },
+        {
+          "item_id": "303000",
+          "name": "风铜矿",
+          "quantity": 2
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {},
+      "base_seconds": 4,
+      "max_batch": 50,
+      "unlock": "科技：御灵巧匠III·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/501003/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_kibocard08.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "501004",
+      "item_id": "1000003",
+      "name": "珍贵的星结卡",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "312001",
+          "name": "细碎的星结之辉",
+          "quantity": 5
+        },
+        {
+          "item_id": "313013",
+          "name": "月麻布",
+          "quantity": 2
+        },
+        {
+          "item_id": "353000",
+          "name": "风铜锭",
+          "quantity": 2
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 32
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 140
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 32
+        }
+      },
+      "base_seconds": 8,
+      "max_batch": 50,
+      "unlock": "科技：御灵巧匠IV·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/501004/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_kibocard03.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "501005",
+      "item_id": "1000008",
+      "name": "出众的星结卡",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "312001",
+          "name": "细碎的星结之辉",
+          "quantity": 10
+        },
+        {
+          "item_id": "313011",
+          "name": "云棉布",
+          "quantity": 2
+        },
+        {
+          "item_id": "353002",
+          "name": "镜铁锭",
+          "quantity": 2
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {},
+      "base_seconds": 12,
+      "max_batch": 50,
+      "unlock": "科技：御灵巧匠VI·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/501005/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_kibocard09.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "501006",
+      "item_id": "1000004",
+      "name": "闪耀的星结卡",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "312001",
+          "name": "细碎的星结之辉",
+          "quantity": 15
+        },
+        {
+          "item_id": "313011",
+          "name": "云棉布",
+          "quantity": 3
+        },
+        {
+          "item_id": "353002",
+          "name": "镜铁锭",
+          "quantity": 2
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 105
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 300
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 105
+        }
+      },
+      "base_seconds": 24,
+      "max_batch": 50,
+      "unlock": "科技：御灵巧匠VII·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/501006/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_kibocard04.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "501007",
+      "item_id": "1000006",
+      "name": "卓然的星结卡",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "312001",
+          "name": "细碎的星结之辉",
+          "quantity": 25
+        },
+        {
+          "item_id": "313011",
+          "name": "云棉布",
+          "quantity": 4
+        },
+        {
+          "item_id": "353005",
+          "name": "白银锭",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {},
+      "base_seconds": 40,
+      "max_batch": 50,
+      "unlock": "科技：御灵巧匠Ⅸ·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/501007/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_kibocard07.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "501008",
+      "item_id": "1000005",
+      "name": "鎏光的星结卡",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "312001",
+          "name": "细碎的星结之辉",
+          "quantity": 40
+        },
+        {
+          "item_id": "313011",
+          "name": "云棉布",
+          "quantity": 5
+        },
+        {
+          "item_id": "353005",
+          "name": "白银锭",
+          "quantity": 4
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 310
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 600
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 310
+        }
+      },
+      "base_seconds": 80,
+      "max_batch": 50,
+      "unlock": "科技：御灵巧匠XI·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/501008/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_kibocard05.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "502001",
+      "item_id": "1810001",
+      "name": "未开封的平凡记忆",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "350000",
+          "name": "软木板",
+          "quantity": 1
+        },
+        {
+          "item_id": "353000",
+          "name": "风铜锭",
+          "quantity": 1
+        },
+        {
+          "item_id": "1820001",
+          "name": "追忆的丝绪",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {},
+      "base_seconds": 40,
+      "max_batch": 10,
+      "unlock": "科技：御灵巧匠III·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/502001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_soulessencecard01.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "502002",
+      "item_id": "1810002",
+      "name": "未开封的特别记忆",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "350001",
+          "name": "硬木板",
+          "quantity": 1
+        },
+        {
+          "item_id": "353002",
+          "name": "镜铁锭",
+          "quantity": 1
+        },
+        {
+          "item_id": "1820001",
+          "name": "追忆的丝绪",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {},
+      "base_seconds": 80,
+      "max_batch": 10,
+      "unlock": "科技：御灵巧匠VI·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/502002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_soulessencecard02.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "502003",
+      "item_id": "1810003",
+      "name": "未开封的珍贵记忆",
+      "station": "共鸣石台",
+      "ingredients": [
+        {
+          "item_id": "350001",
+          "name": "硬木板",
+          "quantity": 1
+        },
+        {
+          "item_id": "353005",
+          "name": "白银锭",
+          "quantity": 1
+        },
+        {
+          "item_id": "1820001",
+          "name": "追忆的丝绪",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "元素",
+      "static_prices": {},
+      "base_seconds": 120,
+      "max_batch": 10,
+      "unlock": "科技：御灵巧匠Ⅸ·星契",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/502003/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_soulessencecard03.png",
+      "category": "家园设施",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800001",
+      "item_id": "1200001",
+      "name": "苗鸡木雕",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "350000",
+          "name": "软木板",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 76
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 800
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 76
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "科技：基础工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir01.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800002",
+      "item_id": "1200002",
+      "name": "迷你狼神石俑",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "351000",
+          "name": "尘石砖",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 70
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 800
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 70
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "科技：基础工业II·订单",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_wolfidol.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800003",
+      "item_id": "1200003",
+      "name": "皮制加多利摆件",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "313001",
+          "name": "粗糙皮革",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 70
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 800
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 70
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "科技：初级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800003/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir03.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800005",
+      "item_id": "1200005",
+      "name": "旋转小马音乐盒",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "350001",
+          "name": "硬木板",
+          "quantity": 5
+        },
+        {
+          "item_id": "353005",
+          "name": "白银锭",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 150
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 1
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 150
+        }
+      },
+      "base_seconds": 80,
+      "max_batch": 100,
+      "unlock": "科技：高级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800005/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir05.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800007",
+      "item_id": "1200007",
+      "name": "拼色皮革风景画",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "313002",
+          "name": "精鞣皮革",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 150
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 1
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 150
+        }
+      },
+      "base_seconds": 40,
+      "max_batch": 100,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800007/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir07.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800008",
+      "item_id": "1200008",
+      "name": "银质花园雕塑",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "353005",
+          "name": "白银锭",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 150
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 1
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 150
+        }
+      },
+      "base_seconds": 80,
+      "max_batch": 100,
+      "unlock": "科技：高级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800008/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir08.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800011",
+      "item_id": "1200015",
+      "name": "森镜木鼓",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "350000",
+          "name": "软木板",
+          "quantity": 5
+        },
+        {
+          "item_id": "313001",
+          "name": "粗糙皮革",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 70
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 800
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 70
+        }
+      },
+      "base_seconds": 20,
+      "max_batch": 100,
+      "unlock": "科技：初级工业II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800011/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir15.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800012",
+      "item_id": "1200016",
+      "name": "古力炉",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "351001",
+          "name": "坚岩砖",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 70
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 800
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 70
+        }
+      },
+      "base_seconds": 40,
+      "max_batch": 100,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800012/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir16.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800013",
+      "item_id": "1200017",
+      "name": "浮音风铃",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "353000",
+          "name": "风铜锭",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 70
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 800
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 70
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "科技：基础工业II·订单",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800013/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir17.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800015",
+      "item_id": "1200019",
+      "name": "公正之仪摆件",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "353002",
+          "name": "镜铁锭",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 150
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 1
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 150
+        }
+      },
+      "base_seconds": 40,
+      "max_batch": 100,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800015/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir19.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800016",
+      "item_id": "1200020",
+      "name": "木关节岩蹄玩具",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "350001",
+          "name": "硬木板",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 150
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 1
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 150
+        }
+      },
+      "base_seconds": 40,
+      "max_batch": 100,
+      "unlock": "科技：中级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800016/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir20.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800017",
+      "item_id": "1200021",
+      "name": "彩窗装饰",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "351001",
+          "name": "坚岩砖",
+          "quantity": 5
+        },
+        {
+          "item_id": "353005",
+          "name": "白银锭",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 150
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 1
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 150
+        }
+      },
+      "base_seconds": 80,
+      "max_batch": 100,
+      "unlock": "科技：高级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800017/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir21.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800018",
+      "item_id": "1200022",
+      "name": "雕花首饰盒",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "351000",
+          "name": "尘石砖",
+          "quantity": 5
+        },
+        {
+          "item_id": "350000",
+          "name": "软木板",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 150
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 1
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 150
+        }
+      },
+      "base_seconds": 20,
+      "max_batch": 100,
+      "unlock": "科技：初级工业II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800018/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir22.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800021",
+      "item_id": "1200025",
+      "name": "轻羽锡冠",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "353016",
+          "name": "青铜锭",
+          "quantity": 4
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 115
+        }
+      },
+      "base_seconds": 20,
+      "max_batch": 100,
+      "unlock": "科技：初级工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800021/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_feathercrown.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800022",
+      "item_id": "1200026",
+      "name": "凝辉吊坠",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "302024",
+          "name": "凝形晶核",
+          "quantity": 5
+        },
+        {
+          "item_id": "303000",
+          "name": "风铜矿",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 307
+        }
+      },
+      "base_seconds": 40,
+      "max_batch": 100,
+      "unlock": "断风磐声望 Lv.4",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800022/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_glowpendant.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800023",
+      "item_id": "1200027",
+      "name": "密文环饰",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "302025",
+          "name": "密文轮盘",
+          "quantity": 5
+        },
+        {
+          "item_id": "300000",
+          "name": "软木",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 34
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "断风磐声望 Lv.1",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800023/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_runering.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800024",
+      "item_id": "1200028",
+      "name": "新芽塔香",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "302023",
+          "name": "本质之砂",
+          "quantity": 5
+        },
+        {
+          "item_id": "300000",
+          "name": "软木",
+          "quantity": 1
+        },
+        {
+          "item_id": "351001",
+          "name": "坚岩砖",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 340
+        }
+      },
+      "base_seconds": 40,
+      "max_batch": 100,
+      "unlock": "夏露露村声望 Lv.4",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800024/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_sproutincense.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800025",
+      "item_id": "1200029",
+      "name": "凝质晶球",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "302026",
+          "name": "元素凝质",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 34
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "夏露露村声望 Lv.1",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800025/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenirdemoncrystalball.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800026",
+      "item_id": "1200030",
+      "name": "软绒围巾",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "302012",
+          "name": "细密软绒",
+          "quantity": 5
+        },
+        {
+          "item_id": "305901",
+          "name": "月麻",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 34
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "弗利斯城邦声望 Lv.1",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800026/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_plushscarf.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800027",
+      "item_id": "1200031",
+      "name": "灵角摆饰",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "302019",
+          "name": "兽灵之角",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 307
+        }
+      },
+      "base_seconds": 40,
+      "max_batch": 100,
+      "unlock": "弗利斯城邦声望 Lv.3",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800027/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_spirithorn.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800028",
+      "item_id": "1200032",
+      "name": "锋喙契印",
+      "station": "工作室",
+      "ingredients": [
+        {
+          "item_id": "302020",
+          "name": "锋锐利喙",
+          "quantity": 5
+        },
+        {
+          "item_id": "353002",
+          "name": "镜铁锭",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 358
+        }
+      },
+      "base_seconds": 40,
+      "max_batch": 100,
+      "unlock": "弗利斯城邦声望 Lv.4",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800028/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_beakseal.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "800029",
+      "item_id": "1200033",
+      "name": "斑斓羽冠",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "302013",
+          "name": "斑斓飞羽",
+          "quantity": 5
+        },
+        {
+          "item_id": "313011",
+          "name": "云棉布",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 33
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "弗利斯城邦声望 Lv.2",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800029/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenirgarland.png",
+      "category": "道具",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "9100301",
+      "item_id": "9000301",
+      "name": "普通惊奇爆谷",
+      "station": "烹饪锅",
+      "ingredients": [
+        {
+          "item_id": "400301",
+          "name": "普通丰盈玉米",
+          "quantity": 6
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 29
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "科技：基础料理II",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/9100301/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_dishes203.png",
+      "category": "烹饪",
+      "execution_verified": false
+    },
+    {
+      "recipe_id": "9102001",
+      "item_id": "9002901",
+      "name": "普通小份波波饼",
+      "station": "烹饪锅",
+      "ingredients": [
+        {
+          "item_id": "400101",
+          "name": "普通金麦",
+          "quantity": 4
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 9
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "默认解锁",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/9102001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_dishes901.png",
+      "category": "烹饪",
+      "execution_verified": false
+    }
+  ],
+  "unresolved": [
+    {
+      "name": "见习猎人短刀",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200001/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "见习猎人短刀"
+        ],
+        [
+          "材料",
+          "软木 ×10 纤维 ×10"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "默认解锁"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200001"
+        ]
+      ]
+    },
+    {
+      "name": "见习猎人轻甲",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200002/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "见习猎人轻甲"
+        ],
+        [
+          "材料",
+          "软木 ×10 纤维 ×10"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "默认解锁"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200002"
+        ]
+      ]
+    },
+    {
+      "name": "见习猎人下装",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200003/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "见习猎人下装"
+        ],
+        [
+          "材料",
+          "软木 ×10 纤维 ×10"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "默认解锁"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11002"
+        ],
+        [
+          "配方 ID",
+          "#200003"
+        ]
+      ]
+    },
+    {
+      "name": "见习猎人耳饰",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200004/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "见习猎人耳饰"
+        ],
+        [
+          "材料",
+          "软木 ×10 纤维 ×10"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "默认解锁"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200004"
+        ]
+      ]
+    },
+    {
+      "name": "见习猎人之戒",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200005/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "见习猎人之戒"
+        ],
+        [
+          "材料",
+          "软木 ×10 纤维 ×10"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "默认解锁"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200005"
+        ]
+      ]
+    },
+    {
+      "name": "游历者之剑",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200006/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "游历者之剑"
+        ],
+        [
+          "材料",
+          "粗糙皮革 ×5 风铜锭 ×10"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "星识 Lv.15"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11002"
+        ],
+        [
+          "配方 ID",
+          "#200006"
+        ]
+      ]
+    },
+    {
+      "name": "游历者之铠",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200007/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "游历者之铠"
+        ],
+        [
+          "材料",
+          "粗糙皮革 ×5 风铜锭 ×10"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "星识 Lv.15"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200007"
+        ]
+      ]
+    },
+    {
+      "name": "游历者之裳",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200008/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "游历者之裳"
+        ],
+        [
+          "材料",
+          "粗糙皮革 ×5 风铜锭 ×10"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "星识 Lv.15"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200008"
+        ]
+      ]
+    },
+    {
+      "name": "游历者耳饰",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200009/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "游历者耳饰"
+        ],
+        [
+          "材料",
+          "粗糙皮革 ×5 风铜锭 ×10"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "星识 Lv.15"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200009"
+        ]
+      ]
+    },
+    {
+      "name": "游历者之戒",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200010/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "游历者之戒"
+        ],
+        [
+          "材料",
+          "粗糙皮革 ×5 风铜锭 ×10"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "星识 Lv.15"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200010"
+        ]
+      ]
+    },
+    {
+      "name": "巡林者之刃",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200011/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "巡林者之刃"
+        ],
+        [
+          "材料",
+          "月麻布 ×5 粗糙皮革 ×5"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "星识 Lv.15"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200011"
+        ]
+      ]
+    },
+    {
+      "name": "巡林者之披",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200012/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "巡林者之披"
+        ],
+        [
+          "材料",
+          "月麻布 ×5 粗糙皮革 ×5"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "星识 Lv.15"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200012"
+        ]
+      ]
+    },
+    {
+      "name": "巡林者之裤",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200013/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "巡林者之裤"
+        ],
+        [
+          "材料",
+          "月麻布 ×5 粗糙皮革 ×5"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "星识 Lv.15"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200013"
+        ]
+      ]
+    },
+    {
+      "name": "巡林者耳饰",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200014/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "巡林者耳饰"
+        ],
+        [
+          "材料",
+          "月麻布 ×5 粗糙皮革 ×5"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "星识 Lv.15"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200014"
+        ]
+      ]
+    },
+    {
+      "name": "巡林者之戒",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/200015/",
+      "reason": "Source output has no item ID; retain table facts for manual mapping",
+      "table_facts": [
+        [
+          "产出",
+          "巡林者之戒"
+        ],
+        [
+          "材料",
+          "月麻布 ×5 粗糙皮革 ×5"
+        ],
+        [
+          "制作时间",
+          "10s"
+        ],
+        [
+          "饱腹值",
+          "1"
+        ],
+        [
+          "解锁",
+          "星识 Lv.15"
+        ],
+        [
+          "单次生产上限",
+          "1"
+        ],
+        [
+          "科技经验",
+          "工业: 11001"
+        ],
+        [
+          "配方 ID",
+          "#200015"
+        ]
+      ]
+    }
+  ]
+}

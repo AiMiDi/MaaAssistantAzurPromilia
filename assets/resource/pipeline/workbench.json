@@ -1,0 +1,275 @@
+{
+    "WorkbenchOpen": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "HomeBuildingsPage",
+            {
+                "recognition": "OCR",
+                "expected": "^工作台$",
+                "roi": [
+                    130,
+                    140,
+                    100,
+                    28
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            213,
+            217
+        ],
+        "post_delay": 900
+    },
+    "WorkbenchPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "工作台",
+                "roi": [
+                    65,
+                    105,
+                    170,
+                    50
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "开始生产",
+                "roi": [
+                    950,
+                    575,
+                    150,
+                    52
+                ]
+            }
+        ]
+    },
+    "WorkbenchClose": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage"
+        ],
+        "action": "Click",
+        "target": [
+            1247,
+            29
+        ],
+        "post_delay": 600
+    },
+    "WorkbenchTabGoods": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "商品",
+                "roi": [
+                    605,
+                    125,
+                    66,
+                    30
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            638,
+            122
+        ],
+        "post_delay": 1000
+    },
+    "WorkbenchSelectSoftwoodBoard": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^软木板$",
+                "roi": [
+                    355,
+                    230,
+                    445,
+                    360
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "target_offset": [
+            0,
+            -40,
+            0,
+            0
+        ],
+        "post_delay": 800
+    },
+    "WorkbenchSelectChickCarving": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^苗鸡木雕$",
+                "roi": [
+                    355,
+                    230,
+                    445,
+                    360
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "target_offset": [
+            0,
+            -40,
+            0,
+            0
+        ],
+        "post_delay": 800
+    },
+    "WorkbenchSelectWolfFigurine": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^迷你狼神石俑$",
+                "roi": [
+                    355,
+                    230,
+                    445,
+                    360
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "target_offset": [
+            0,
+            -40,
+            0,
+            0
+        ],
+        "post_delay": 800
+    },
+    "WorkbenchSelectWindChime": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^浮音风铃$",
+                "roi": [
+                    355,
+                    230,
+                    445,
+                    360
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "target_offset": [
+            0,
+            -40,
+            0,
+            0
+        ],
+        "post_delay": 800
+    },
+    "WorkbenchSelectInscribedRing": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^密文环饰$",
+                "roi": [
+                    355,
+                    230,
+                    445,
+                    360
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "target_offset": [
+            0,
+            -40,
+            0,
+            0
+        ],
+        "post_delay": 800
+    },
+    "WorkbenchSelectCrystalBall": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^凝质晶球$",
+                "roi": [
+                    355,
+                    230,
+                    445,
+                    360
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "target_offset": [
+            0,
+            -40,
+            0,
+            0
+        ],
+        "post_delay": 800
+    },
+    "WorkbenchSelectSoftScarf": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^软绒围巾$",
+                "roi": [
+                    355,
+                    230,
+                    445,
+                    360
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "target_offset": [
+            0,
+            -40,
+            0,
+            0
+        ],
+        "post_delay": 800
+    }
+}

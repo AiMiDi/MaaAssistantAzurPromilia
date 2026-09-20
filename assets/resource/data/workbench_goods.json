@@ -1,0 +1,349 @@
+{
+  "source": "https://ap-cbt3.csxylic.com",
+  "game_version": "CBT3",
+  "wiki_data_version": "0.3.0",
+  "scope": "Current workbench goods and their reviewed intermediates",
+  "recipes": [
+    {
+      "recipe_id": "302001",
+      "item_id": "350000",
+      "name": "软木板",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "300000",
+          "name": "软木",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 11
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 80
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 11
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 300,
+      "unlock": "科技：基础工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/302001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_woodmaterial01.png"
+    },
+    {
+      "recipe_id": "800001",
+      "item_id": "1200001",
+      "name": "苗鸡木雕",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "350000",
+          "name": "软木板",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 76
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 800
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 76
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "科技：基础工业I",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir01.png"
+    },
+    {
+      "recipe_id": "800002",
+      "item_id": "1200002",
+      "name": "迷你狼神石俑",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "351000",
+          "name": "尘石砖",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 70
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 800
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 70
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "科技：基础工业II·订单",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_wolfidol.png"
+    },
+    {
+      "recipe_id": "800013",
+      "item_id": "1200017",
+      "name": "浮音风铃",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "353000",
+          "name": "风铜锭",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 70
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 800
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 70
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "科技：基础工业II·订单",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800013/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir17.png"
+    },
+    {
+      "recipe_id": "800023",
+      "item_id": "1200027",
+      "name": "密文环饰",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "302025",
+          "name": "密文轮盘",
+          "quantity": 5
+        },
+        {
+          "item_id": "300000",
+          "name": "软木",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 34
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "断风磐声望 Lv.1",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800023/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_runering.png"
+    },
+    {
+      "recipe_id": "800025",
+      "item_id": "1200029",
+      "name": "凝质晶球",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "302026",
+          "name": "元素凝质",
+          "quantity": 5
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 34
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "夏露露村声望 Lv.1",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800025/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenirdemoncrystalball.png"
+    },
+    {
+      "recipe_id": "800026",
+      "item_id": "1200030",
+      "name": "软绒围巾",
+      "station": "工作台",
+      "ingredients": [
+        {
+          "item_id": "302012",
+          "name": "细密软绒",
+          "quantity": 5
+        },
+        {
+          "item_id": "305901",
+          "name": "月麻",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "手工",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 34
+        }
+      },
+      "base_seconds": 10,
+      "max_batch": 100,
+      "unlock": "弗利斯城邦声望 Lv.1",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/800026/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_souvenir_plushscarf.png"
+    },
+    {
+      "recipe_id": "306001",
+      "item_id": "351000",
+      "name": "尘石砖",
+      "station": "熔炉",
+      "ingredients": [
+        {
+          "item_id": "301000",
+          "name": "尘石",
+          "quantity": 3
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 11
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 50
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 11
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 300,
+      "unlock": "科技：基础工业II·订单",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/306001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_stonematerial01.png"
+    },
+    {
+      "recipe_id": "304001",
+      "item_id": "353000",
+      "name": "风铜锭",
+      "station": "熔炉",
+      "ingredients": [
+        {
+          "item_id": "303000",
+          "name": "风铜矿",
+          "quantity": 3
+        },
+        {
+          "item_id": "350006",
+          "name": "木炭",
+          "quantity": 1
+        }
+      ],
+      "optional_ingredients": [],
+      "requires_material_choice": false,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 33
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 92
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 33
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 300,
+      "unlock": "科技：基础工业II·订单",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/304001/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_metal03.png"
+    },
+    {
+      "recipe_id": "301002",
+      "item_id": "350006",
+      "name": "木炭",
+      "station": "熔炉",
+      "ingredients": [],
+      "optional_ingredients": [
+        {
+          "item_id": "307004",
+          "name": "霜狼茅",
+          "quantity": 5
+        }
+      ],
+      "requires_material_choice": true,
+      "labor": "燃火",
+      "static_prices": {
+        "直接出售": {
+          "currency_item_id": "103",
+          "quantity": 11
+        },
+        "订单价": {
+          "currency_item_id": "103",
+          "quantity": 50
+        },
+        "分解返还": {
+          "currency_item_id": "103",
+          "quantity": 11
+        }
+      },
+      "base_seconds": 3,
+      "max_batch": 300,
+      "unlock": "科技：基础工业II·订单",
+      "source_url": "https://ap-cbt3.csxylic.com/home/product/301002/",
+      "icon_url": "https://ap-cbt3.csxylic.com/icons/item/tex_icon_item_woodmaterial99.png"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "source": "https://ap-cbt3.csxylic.com",
+  "game_version": "CBT3",
+  "wiki_data_version": "0.3.0",
+  "prepared_at_utc": "2026-09-20T16:47:38.896898+00:00",
+  "indexes": {
+    "products": {
+      "url": "https://ap-cbt3.csxylic.com/home/product/",
+      "count": 426,
+      "sha256": "689142db83953975994e3dc9829b9f059a1e474adaee88f219103f30c0eeed61"
+    },
+    "buildings": {
+      "url": "https://ap-cbt3.csxylic.com/home/building/",
+      "count": 46,
+      "sha256": "3df404b113b1de4e425c5681cd58a1275427d64cd093ef01a236f02990787ca9"
+    },
+    "tech": {
+      "url": "https://ap-cbt3.csxylic.com/home/tech/",
+      "count": 3,
+      "sha256": "581a922d0f5103ab262c284da9db0084a7b8fbe87c19ecd08da12589012027db"
+    },
+    "orders": {
+      "url": "https://ap-cbt3.csxylic.com/home/order/",
+      "count": 672,
+      "sha256": "6dce9de74145823317263ee476f4240342c948b5b8e78372ac84a8a3534709f0"
+    },
+    "seeds": {
+      "url": "https://ap-cbt3.csxylic.com/home/seed/",
+      "count": 67,
+      "sha256": "c1cd1baa49306841777590f6e5e6e642e57fb9af244021ae986e2ad07439a8ea"
+    },
+    "shop": {
+      "url": "https://ap-cbt3.csxylic.com/home/shop/",
+      "count": 108,
+      "sha256": "f5db48f0ae5434204767c5375251684ce1e7a5509163b56f5f4a95a20deb3975"
+    },
+    "collection": {
+      "url": "https://ap-cbt3.csxylic.com/home/collection/",
+      "count": 38,
+      "sha256": "6b2089eeb462b8883af2e73e5ac8a5086d166d026adfd582608587c7f450936b"
+    },
+    "items": {
+      "url": "https://ap-cbt3.csxylic.com/items/",
+      "count": 1394,
+      "sha256": "a7a78552d6f00f00683f7c33b6f2f0400a6bde9998c42451fbb38737838c9e64"
+    },
+    "guides": {
+      "url": "https://ap-cbt3.csxylic.com/guide/",
+      "count": 312,
+      "sha256": "db32d4771200c2ea6bdb67d9ee922f12a6abeb1c69fc5031e2a6cd2403b05df1"
+    }
+  },
+  "recipe_count": 86,
+  "unresolved_recipe_count": 15,
+  "system_page_count": 154,
+  "files": {
+    "indexes.json": "a8c514453594630bdc5791d009852acb9f2377b6019db14cc03e68906a0bd170",
+    "recipes.json": "0fe15225b6310fd15d5637e458a8b4f3f363d411cabc96b6df5ed60d402e740c",
+    "systems.json": "cf6c00ffba4fa8a8adef843e211113a5dba14c84bc92faa7e62bab7e6ba134d1"
+  },
+  "note": "Static preparation only. Not proof of account unlocks, live prices or UI automation support."
+}

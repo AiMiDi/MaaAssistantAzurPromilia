@@ -104,6 +104,7 @@ class Workflow:
 
     def navigate(self, target):
         routes = [
+            ("WorkbenchPage", "WorkbenchClose"),
             ("HomeSeedsPage", "HomeCloseSeeds"),
             ("HomeFarmDetailPage", "HomeCloseFarm"),
             ("HomeCookingPage", "HomeCloseCooking"),
