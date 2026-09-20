@@ -1,13 +1,13 @@
 import sys
 
 from maa.agent.agent_server import AgentServer
-from maa.toolkit import Toolkit
+from maa.tasker import Tasker
 
 from workflows import register
 
 
 def main():
-    Toolkit.init_option("./")
+    Tasker.set_log_dir("./debug")
     register(AgentServer)
 
     if len(sys.argv) < 2:
