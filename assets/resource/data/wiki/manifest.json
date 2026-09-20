@@ -2,7 +2,7 @@
   "source": "https://ap-cbt3.csxylic.com",
   "game_version": "CBT3",
   "wiki_data_version": "0.3.0",
-  "prepared_at_utc": "2026-09-20T16:47:38.896898+00:00",
+  "prepared_at_utc": "2026-09-20T16:48:58.343238+00:00",
   "indexes": {
     "products": {
       "url": "https://ap-cbt3.csxylic.com/home/product/",
@@ -54,9 +54,9 @@
   "unresolved_recipe_count": 15,
   "system_page_count": 154,
   "files": {
-    "indexes.json": "a8c514453594630bdc5791d009852acb9f2377b6019db14cc03e68906a0bd170",
-    "recipes.json": "0fe15225b6310fd15d5637e458a8b4f3f363d411cabc96b6df5ed60d402e740c",
-    "systems.json": "cf6c00ffba4fa8a8adef843e211113a5dba14c84bc92faa7e62bab7e6ba134d1"
+    "indexes.json": "7ceec5d25a779ce5dda8135b05c97f5cf09c764dcefd14c8f8ef536857d83673",
+    "recipes.json": "405439536302579c0001181d185bbf797cbfbd1281683dc8e337fda6522aae43",
+    "systems.json": "0a8adaacd7a602ccb538b7441bb160fafca386d2555c189d2c55ab5c1cfa5068"
   },
   "note": "Static preparation only. Not proof of account unlocks, live prices or UI automation support."
 }

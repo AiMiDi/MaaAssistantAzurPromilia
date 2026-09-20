@@ -41,7 +41,7 @@ def main():
 
     with ThreadPoolExecutor(max_workers=2) as pool:
         records = list(pool.map(cache, selected))
-    (data / "goods_icons.json").write_text(json.dumps(records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (data / "goods_icons.json").write_text(json.dumps(records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"Validated {len(records)} source icons")
 
 
