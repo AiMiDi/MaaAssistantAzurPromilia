@@ -1,0 +1,41 @@
+name: check
+
+on:
+  push:
+    branches:
+      - "**"
+    paths:
+      - ".github/workflows/check.yml"
+      - "assets/**"
+      - "**.py"
+  pull_request:
+    branches:
+      - "**"
+    paths:
+      - ".github/workflows/check.yml"
+      - "assets/**"
+      - "**.py"
+  workflow_dispatch:
+
+jobs:
+  resource:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements-dev.txt
+
+      - name: Test guards and recipe policy
+        run: python -m pytest -q
+
+      - name: Validate JSON Schema
+        run: |
+          python tools/validate_schema.py --schema-dir tools/schema --resource-dirs assets/resource/pipeline --interface-files assets/interface.json

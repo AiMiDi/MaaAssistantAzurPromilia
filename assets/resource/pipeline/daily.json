@@ -1,0 +1,103 @@
+{
+    "DailyChest": {
+        "action": "LongPress",
+        "duration": 120,
+        "post_delay": 1000,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "DailyPage",
+                    {
+                        "recognition": "TemplateMatch",
+                        "template": "daily/chest_ready.png",
+                        "roi": [
+                            495,
+                            622,
+                            625,
+                            65
+                        ],
+                        "threshold": 0.8
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    },
+    "DailyScroll": {
+        "action": "Scroll",
+        "target": [
+            930,
+            405
+        ],
+        "dy": -360,
+        "post_delay": 800,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "DailyPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "DailyPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "日常活跃",
+                "roi": [
+                    500,
+                    15,
+                    110,
+                    35
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "周常活跃",
+                "roi": [
+                    670,
+                    15,
+                    130,
+                    35
+                ]
+            }
+        ]
+    },
+    "DailyClaim": {
+        "action": "LongPress",
+        "post_delay": 1000,
+        "duration": 120,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "DailyPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "^领取$",
+                        "roi": [
+                            1090,
+                            108,
+                            90,
+                            470
+                        ],
+                        "order_by": "Vertical"
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    }
+}

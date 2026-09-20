@@ -454,6 +454,8 @@ config
 debug
 .cache/
 .venv/
+.runtime/
+assets/resource/model/ocr/
 .pytest_cache/
 __pycache__/
 config/

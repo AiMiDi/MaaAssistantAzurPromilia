@@ -1,0 +1,95 @@
+{
+    "MailEmptyDialog": {
+        "action": "Click",
+        "target": [
+            630,
+            450
+        ],
+        "post_delay": 400,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "OCR",
+                "expected": "所有邮件附件都已被领取",
+                "roi": [
+                    430,
+                    330,
+                    440,
+                    75
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "CloseMail": {
+        "action": "Click",
+        "target": [
+            1086,
+            145
+        ],
+        "post_delay": 500,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "MailPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "MailPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "^邮箱$",
+                "roi": [
+                    770,
+                    124,
+                    150,
+                    45
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "全部邮件",
+                "roi": [
+                    180,
+                    185,
+                    65,
+                    45
+                ]
+            }
+        ]
+    },
+    "MailClaim": {
+        "action": "Click",
+        "post_delay": 250,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "MailPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "^全部领取$",
+                        "roi": [
+                            416,
+                            530,
+                            140,
+                            40
+                        ]
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    }
+}

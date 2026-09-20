@@ -1,0 +1,81 @@
+{
+    "SupportedFrame": {
+        "recognition": "Custom",
+        "custom_recognition": "SupportedFrame"
+    },
+    "Step": {
+        "recognition": "DirectHit"
+    },
+    "Report": {
+        "recognition": "DirectHit"
+    },
+    "HomeRoutine": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "home"
+        },
+        "focus": {
+            "Node.Action.Failed": "任务未完成，请查看日志中的页面或识别错误。"
+        }
+    },
+    "HomeCollect": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "collect"
+        },
+        "focus": {
+            "Node.Action.Failed": "任务未完成，请查看日志中的页面或识别错误。"
+        }
+    },
+    "HomeFeed": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "feed"
+        },
+        "focus": {
+            "Node.Action.Failed": "任务未完成，请查看日志中的页面或识别错误。"
+        }
+    },
+    "ClaimMail": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "mail"
+        },
+        "focus": {
+            "Node.Action.Failed": "任务未完成，请查看日志中的页面或识别错误。"
+        }
+    },
+    "ClaimSignIn": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "signin"
+        },
+        "focus": {
+            "Node.Action.Failed": "任务未完成，请查看日志中的页面或识别错误。"
+        }
+    },
+    "WindowPolicy": {
+        "recognition": "DirectHit",
+        "attach": {
+            "topmost": true
+        }
+    },
+    "RecipePolicy": {
+        "recognition": "DirectHit",
+        "attach": {
+            "Cookie": true,
+            "Popcorn": true,
+            "priority": "Cookie"
+        }
+    }
+}

@@ -1,0 +1,845 @@
+{
+    "HomeCookingChooseCookie": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "HomeCookingPage",
+            {
+                "recognition": "OCR",
+                "expected": "小份波波饼",
+                "roi": [
+                    612,
+                    225,
+                    100,
+                    43
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            666,
+            201
+        ],
+        "post_delay": 600
+    },
+    "HomeCookingChooseSoup": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "HomeCookingPage",
+            {
+                "recognition": "OCR",
+                "expected": "红萝排骨汤",
+                "roi": [
+                    531,
+                    225,
+                    105,
+                    43
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            580,
+            201
+        ],
+        "post_delay": 600
+    },
+    "HomeCookingChooseMeal": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "HomeCookingPage",
+            {
+                "recognition": "OCR",
+                "expected": "营养餐",
+                "roi": [
+                    705,
+                    225,
+                    102,
+                    43
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            750,
+            201
+        ],
+        "post_delay": 600
+    },
+    "HomeCookingInsufficient": {
+        "recognition": "And",
+        "all_of": [
+            "HomeCookingRecipe",
+            {
+                "recognition": "ColorMatch",
+                "roi": [
+                    882,
+                    239,
+                    23,
+                    18
+                ],
+                "method": 4,
+                "lower": [
+                    180,
+                    40,
+                    20
+                ],
+                "upper": [
+                    255,
+                    140,
+                    130
+                ],
+                "count": 4
+            }
+        ]
+    },
+    "HomeCookingPopcorn": {
+        "recognition": "And",
+        "all_of": [
+            "HomeCookingPage",
+            {
+                "recognition": "OCR",
+                "expected": "惊奇爆谷",
+                "roi": [
+                    850,
+                    124,
+                    220,
+                    48
+                ]
+            }
+        ]
+    },
+    "HomeCookingMax": {
+        "action": "Click",
+        "target": [
+            1131,
+            555
+        ],
+        "post_delay": 500,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeCookingRecipe"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeCookingStart": {
+        "action": "Click",
+        "target": [
+            1036,
+            601
+        ],
+        "post_delay": 1000,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeCookingRecipe"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeCookingPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "烹饪锅",
+                "roi": [
+                    65,
+                    105,
+                    170,
+                    50
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "开始生产",
+                "roi": [
+                    950,
+                    575,
+                    150,
+                    52
+                ]
+            }
+        ]
+    },
+    "HomeCookingAll": {
+        "action": "Click",
+        "target": [
+            494,
+            126
+        ],
+        "post_delay": 800,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeCookingPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeOpenCooking": {
+        "action": "Click",
+        "target": [
+            213,
+            419
+        ],
+        "post_delay": 900,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeBuildingsPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "烹饪锅",
+                        "roi": [
+                            130,
+                            337,
+                            94,
+                            42
+                        ]
+                    }
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeFoodAddAll": {
+        "action": "Click",
+        "target": [
+            1090,
+            640
+        ],
+        "post_delay": 150,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeFoodPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeSelectFruit": {
+        "action": "Click",
+        "post_delay": 800,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeFoodPage",
+                    {
+                        "recognition": "TemplateMatch",
+                        "template": "home/red_fruit.png",
+                        "roi": [
+                            210,
+                            594,
+                            820,
+                            91
+                        ],
+                        "threshold": 0.88
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeSeedsPage": {
+        "recognition": "OCR",
+        "expected": "种子仓库",
+        "roi": [
+            500,
+            163,
+            280,
+            64
+        ]
+    },
+    "HomeCloseSeeds": {
+        "action": "Click",
+        "target": [
+            1212,
+            37
+        ],
+        "post_delay": 500,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeSeedsPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeCloseFarm": {
+        "action": "Click",
+        "target": [
+            1245,
+            32
+        ],
+        "post_delay": 500,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeFarmDetailPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeBackBuildings": {
+        "action": "Click",
+        "target": [
+            43,
+            37
+        ],
+        "post_delay": 500,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeBuildingsPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeFarmDetailPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "耕作小屋",
+                "roi": [
+                    40,
+                    105,
+                    170,
+                    65
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "种子管理",
+                "roi": [
+                    990,
+                    650,
+                    140,
+                    45
+                ]
+            }
+        ]
+    },
+    "HomeOpenSeeds": {
+        "action": "Click",
+        "target": [
+            1055,
+            639
+        ],
+        "post_delay": 900,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeFarmDetailPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeInspectFarm": {
+        "action": "Click",
+        "target": [
+            332,
+            237
+        ],
+        "post_delay": 1000,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeBuildingsPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "耕作小屋",
+                        "roi": [
+                            180,
+                            125,
+                            120,
+                            65
+                        ]
+                    }
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeLevelUp": {
+        "action": "Click",
+        "target": [
+            640,
+            556
+        ],
+        "post_delay": 800,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    {
+                        "recognition": "OCR",
+                        "expected": "家园等级提升",
+                        "roi": [
+                            490,
+                            215,
+                            290,
+                            43
+                        ]
+                    },
+                    {
+                        "recognition": "OCR",
+                        "expected": "升级奖励",
+                        "roi": [
+                            510,
+                            350,
+                            250,
+                            42
+                        ]
+                    }
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeCollectionPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "收获物品",
+                "roi": [
+                    520,
+                    211,
+                    240,
+                    43
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "生产建筑|烹饪|耕作小屋|家园采集",
+                "roi": [
+                    530,
+                    250,
+                    220,
+                    37
+                ]
+            }
+        ]
+    },
+    "HomeCloseCollection": {
+        "action": "Click",
+        "target": [
+            1237,
+            176
+        ],
+        "post_delay": 700,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeCollectionPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeOpenFarm": {
+        "action": "Click",
+        "target": [
+            1128,
+            238
+        ],
+        "post_delay": 900,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeBuildingsPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "耕作小屋",
+                        "roi": [
+                            1060,
+                            195,
+                            170,
+                            85
+                        ]
+                    }
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeBuildingsPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "建筑管理",
+                "roi": [
+                    65,
+                    18,
+                    115,
+                    40
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "生产建筑",
+                "roi": [
+                    1040,
+                    100,
+                    170,
+                    80
+                ]
+            }
+        ]
+    },
+    "HomeCollectProduction": {
+        "action": "Click",
+        "target": [
+            66,
+            592
+        ],
+        "post_delay": 1300,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeBuildingsPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "一键收取",
+                        "roi": [
+                            15,
+                            510,
+                            125,
+                            55
+                        ]
+                    }
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeFoodPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "奇波餐桌",
+                "roi": [
+                    25,
+                    90,
+                    180,
+                    65
+                ]
+            }
+        ]
+    },
+    "HomeCloseFood": {
+        "action": "Click",
+        "target": [
+            1212,
+            37
+        ],
+        "post_delay": 700,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeFoodPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeCorePage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "家园中枢",
+                "roi": [
+                    65,
+                    18,
+                    115,
+                    40
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "建筑管理",
+                "roi": [
+                    145,
+                    535,
+                    145,
+                    60
+                ]
+            }
+        ]
+    },
+    "HomeOpenFood": {
+        "action": "Click",
+        "post_delay": 1000,
+        "target": [
+            66,
+            480
+        ],
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeCorePage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "奇波餐桌",
+                        "roi": [
+                            95,
+                            450,
+                            150,
+                            60
+                        ]
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeOpenBuildings": {
+        "action": "Click",
+        "post_delay": 1000,
+        "target": [
+            122,
+            572
+        ],
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeCorePage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "建筑管理",
+                        "roi": [
+                            145,
+                            535,
+                            145,
+                            60
+                        ]
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeBackCore": {
+        "action": "Click",
+        "target": [
+            43,
+            37
+        ],
+        "post_delay": 600,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeCorePage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeCloseCooking": {
+        "action": "Click",
+        "target": [
+            1247,
+            29
+        ],
+        "post_delay": 600,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeCookingPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeCookingChoosePopcorn": {
+        "action": "Click",
+        "target": [
+            410,
+            200
+        ],
+        "post_delay": 600,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeCookingPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "^惊奇爆谷$",
+                        "roi": [
+                            352,
+                            228,
+                            110,
+                            46
+                        ]
+                    }
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeCookingMin": {
+        "action": "Click",
+        "target": [
+            876,
+            555
+        ],
+        "post_delay": 600,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeCookingRecipe"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeCookingMaterials": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "expected": "^\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            880,
+            237,
+            43,
+            20
+        ]
+    },
+    "HomeCookingQueue": {
+        "recognition": "OCR",
+        "expected": "^\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            217,
+            368,
+            83,
+            40
+        ]
+    },
+    "HomeFoodAdded": {
+        "recognition": "OCR",
+        "expected": "一键添加料理完成",
+        "roi": [
+            450,
+            73,
+            370,
+            35
+        ]
+    },
+    "HomeFoodUnavailable": {
+        "recognition": "OCR",
+        "expected": "没有可填充的料理",
+        "roi": [
+            450,
+            73,
+            370,
+            35
+        ]
+    },
+    "HomeCookingCookie": {
+        "recognition": "And",
+        "all_of": [
+            "HomeCookingPage",
+            {
+                "recognition": "OCR",
+                "expected": "小份波波饼",
+                "roi": [
+                    850,
+                    124,
+                    250,
+                    48
+                ]
+            }
+        ]
+    },
+    "HomeCookingRecipe": {
+        "recognition": "Or",
+        "any_of": [
+            "HomeCookingCookie",
+            "HomeCookingPopcorn"
+        ]
+    }
+}

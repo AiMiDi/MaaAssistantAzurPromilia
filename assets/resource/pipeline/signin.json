@@ -1,0 +1,64 @@
+{
+    "SignInPage": {
+        "recognition": "OCR",
+        "expected": "来自星海",
+        "roi": [
+            55,
+            20,
+            290,
+            140
+        ]
+    },
+    "SignInClaimProbe": {
+        "recognition": "And",
+        "all_of": [
+            "SignInPage",
+            {
+                "recognition": "ColorMatch",
+                "roi": [
+                    360,
+                    678,
+                    535,
+                    16
+                ],
+                "method": 40,
+                "lower": [
+                    10,
+                    60,
+                    240
+                ],
+                "upper": [
+                    35,
+                    220,
+                    255
+                ],
+                "count": 20,
+                "connected": true
+            }
+        ],
+        "box_index": 1
+    },
+    "SignInClaim": {
+        "action": "Click",
+        "post_delay": 1500,
+        "target_offset": [
+            0,
+            -40,
+            0,
+            0
+        ],
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "SignInPage",
+                    "SignInClaimProbe"
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    }
+}

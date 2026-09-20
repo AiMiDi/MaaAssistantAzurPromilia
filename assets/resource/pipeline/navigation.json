@@ -1,0 +1,440 @@
+{
+    "CloseDaily": {
+        "action": "Click",
+        "target": [
+            1248,
+            29
+        ],
+        "post_delay": 1200,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "DailyPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "OpenHomeCore": {
+        "action": "Click",
+        "post_delay": 1400,
+        "target_offset": [
+            0,
+            -20,
+            0,
+            0
+        ],
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "MenuPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "家园中枢",
+                        "roi": [
+                            240,
+                            640,
+                            140,
+                            60
+                        ]
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    },
+    "TraveloguePage": {
+        "recognition": "OCR",
+        "expected": "普罗米利亚游记",
+        "roi": [
+            60,
+            18,
+            130,
+            42
+        ]
+    },
+    "BackFromTravelogue": {
+        "action": "Click",
+        "target": [
+            43,
+            37
+        ],
+        "post_delay": 1200,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "TraveloguePage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "OpenF5": {
+        "action": "Click",
+        "target": [
+            1094,
+            37
+        ],
+        "post_delay": 1700,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "MenuPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "BackFromActivity": {
+        "action": "Click",
+        "target": [
+            43,
+            37
+        ],
+        "post_delay": 1200,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "ActivityPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "OpenF2": {
+        "action": "Click",
+        "target": [
+            999,
+            37
+        ],
+        "post_delay": 1700,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "MenuPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "ActivityPage": {
+        "recognition": "OCR",
+        "expected": "^活动$",
+        "roi": [
+            80,
+            20,
+            85,
+            30
+        ]
+    },
+    "OpenEventTasks": {
+        "action": "Click",
+        "post_delay": 1600,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "ActivityPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "小小侠客养成记",
+                        "roi": [
+                            20,
+                            320,
+                            215,
+                            100
+                        ]
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    },
+    "QuestBack": {
+        "action": "Click",
+        "target": [
+            43,
+            37
+        ],
+        "post_delay": 600,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "QuestPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "QuestPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "任务",
+                "roi": [
+                    15,
+                    15,
+                    180,
+                    50
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "支线",
+                "roi": [
+                    10,
+                    360,
+                    100,
+                    50
+                ]
+            }
+        ]
+    },
+    "CloseQuest": {
+        "action": "LongPressKey",
+        "key": 27,
+        "post_delay": 500,
+        "duration": 100,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "QuestPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "OpenHandbook": {
+        "action": "Click",
+        "post_delay": 1600,
+        "target": [
+            949,
+            37
+        ],
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "MenuPage"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "RewardPopup": {
+        "action": "Click",
+        "target": [
+            640,
+            605
+        ],
+        "post_delay": 700,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    {
+                        "recognition": "OCR",
+                        "expected": "^获得$",
+                        "roi": [
+                            520,
+                            180,
+                            240,
+                            100
+                        ]
+                    },
+                    {
+                        "recognition": "OCR",
+                        "expected": "点击下方空白处关闭",
+                        "roi": [
+                            420,
+                            490,
+                            440,
+                            100
+                        ]
+                    }
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "OpenTasks": {
+        "action": "Click",
+        "post_delay": 1000,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "MenuPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "任务",
+                        "roi": [
+                            945,
+                            650,
+                            100,
+                            50
+                        ]
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    },
+    "MenuPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "家园中枢",
+                "roi": [
+                    240,
+                    640,
+                    140,
+                    60
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "成就",
+                "roi": [
+                    1070,
+                    640,
+                    90,
+                    60
+                ]
+            }
+        ]
+    },
+    "OpenMail": {
+        "action": "Click",
+        "post_delay": 1000,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "MenuPage",
+                    {
+                        "recognition": "TemplateMatch",
+                        "template": "common/mail.png",
+                        "roi": [
+                            160,
+                            55,
+                            65,
+                            45
+                        ],
+                        "threshold": 0.8
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeHud": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "^[Ee][Ss][Cc]$",
+                "roi": [
+                    17,
+                    45,
+                    38,
+                    22
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "only_rec": true,
+                "expected": "^[Ff][1Il]$",
+                "roi": [
+                    890,
+                    51,
+                    20,
+                    17
+                ]
+            }
+        ]
+    },
+    "OpenMenu": {
+        "action": "LongPressKey",
+        "post_delay": 1000,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "HomeHud"
+                ]
+            }
+        ],
+        "box_index": 1,
+        "key": 27,
+        "duration": 100
+    },
+    "OpenSignIn": {
+        "action": "Click",
+        "post_delay": 1000,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "ActivityPage",
+                    {
+                        "recognition": "OCR",
+                        "expected": "来自星海的礼赠",
+                        "roi": [
+                            15,
+                            620,
+                            240,
+                            85
+                        ]
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    }
+}

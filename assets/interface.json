@@ -1,0 +1,247 @@
+{
+    "interface_version": 2,
+    "name": "MaaAssistantAzurPromilia",
+    "label": "蓝色星原助手",
+    "title": "蓝色星原助手 · 家园优先开发版",
+    "version": "v0.1.0-dev",
+    "description": "基于 MaaFramework 的蓝色星原 PC 助手。家园优先：收获、制作食物、一键补餐。",
+    "github": "https://github.com/AiMiDi/MaaAssistantAzurPromilia",
+    "license": "LICENSE",
+    "welcome": "welcome.md",
+    "controller": [
+        {
+            "name": "Win32",
+            "label": "电脑版 · 前台控制",
+            "type": "Win32",
+            "display_short_side": 720,
+            "win32": {
+                "class_regex": "^UnityWndClass$",
+                "window_regex": "^AzurPromilia$",
+                "screencap": "FramePool",
+                "mouse": "Seize",
+                "keyboard": "Seize"
+            }
+        }
+    ],
+    "resource": [
+        {
+            "name": "bilibili",
+            "label": "bilibili PC（中文）",
+            "path": [
+                "./resource"
+            ]
+        }
+    ],
+    "agent": {
+        "child_exec": "../.venv/Scripts/python.exe",
+        "child_args": [
+            "-X",
+            "utf8",
+            "./agent/main.py"
+        ]
+    },
+    "task": [
+        {
+            "name": "HomeRoutine",
+            "label": "家园日常 · 收获 → 制作 → 补餐",
+            "entry": "HomeRoutine",
+            "description": "一键收获 → 从启用的低成本候选配方中选择可制作的一种 → 收取成品 → 一键补餐。材料不足换下一种；已有生产队列不取消。制作最多等待90秒。",
+            "option": [
+                "Cooking",
+                "RecipePriority",
+                "CookieCandidate",
+                "PopcornCandidate"
+            ]
+        },
+        {
+            "name": "ClaimMail",
+            "label": "邮件 · 全部领取",
+            "entry": "ClaimMail",
+            "description": "领取全部邮件附件，识别奖励或已领完提示后退出。"
+        },
+        {
+            "name": "ClaimSignIn",
+            "label": "签到 · 来自星海的礼赠（测试）",
+            "entry": "ClaimSignIn",
+            "description": "只领取已识别到的当前签到卡片。活动入口变化时会停止。"
+        },
+        {
+            "name": "HomeCollect",
+            "label": "家园 · 仅一键收获",
+            "entry": "HomeCollect"
+        },
+        {
+            "name": "HomeFeed",
+            "label": "家园 · 仅一键补餐",
+            "entry": "HomeFeed",
+            "description": "游戏的一键添加可能放入背包中的所有可用料理，包括饼干和果实。"
+        }
+    ],
+    "option": {
+        "Cooking": {
+            "type": "select",
+            "label": "烹饪策略",
+            "default_case": "Maximum",
+            "cases": [
+                {
+                    "name": "Maximum",
+                    "label": "最大可制作数量",
+                    "pipeline_override": {
+                        "HomeRoutine": {
+                            "custom_action_param": {
+                                "kind": "home",
+                                "cook": true,
+                                "maximum": true
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "One",
+                    "label": "仅制作 1 份",
+                    "pipeline_override": {
+                        "HomeRoutine": {
+                            "custom_action_param": {
+                                "kind": "home",
+                                "cook": true,
+                                "maximum": false
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Skip",
+                    "label": "本轮跳过制作",
+                    "pipeline_override": {
+                        "HomeRoutine": {
+                            "custom_action_param": {
+                                "kind": "home",
+                                "cook": false
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "WindowPin": {
+            "type": "switch",
+            "label": "运行时置顶游戏",
+            "description": "任务开始时恢复并置顶游戏窗口；结束、失败或停止时恢复原置顶状态。",
+            "default_case": "On",
+            "cases": [
+                {
+                    "name": "On",
+                    "label": "开启",
+                    "pipeline_override": {
+                        "WindowPolicy": {
+                            "attach": {
+                                "topmost": true
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Off",
+                    "label": "关闭",
+                    "pipeline_override": {
+                        "WindowPolicy": {
+                            "attach": {
+                                "topmost": false
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "CookieCandidate": {
+            "type": "switch",
+            "label": "候选：小份波波饼 · 小麦×4，饱腹+25",
+            "default_case": "On",
+            "cases": [
+                {
+                    "name": "On",
+                    "label": "纳入候选",
+                    "pipeline_override": {
+                        "RecipePolicy": {
+                            "attach": {
+                                "Cookie": true
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Off",
+                    "label": "排除",
+                    "pipeline_override": {
+                        "RecipePolicy": {
+                            "attach": {
+                                "Cookie": false
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "PopcornCandidate": {
+            "type": "switch",
+            "label": "候选：惊奇爆谷 · 玉米×6，饱腹+10",
+            "default_case": "On",
+            "cases": [
+                {
+                    "name": "On",
+                    "label": "纳入候选",
+                    "pipeline_override": {
+                        "RecipePolicy": {
+                            "attach": {
+                                "Popcorn": true
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Off",
+                    "label": "排除",
+                    "pipeline_override": {
+                        "RecipePolicy": {
+                            "attach": {
+                                "Popcorn": false
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "RecipePriority": {
+            "type": "select",
+            "label": "候选优先顺序",
+            "default_case": "Cookie",
+            "cases": [
+                {
+                    "name": "Cookie",
+                    "label": "小份波波饼 → 惊奇爆谷",
+                    "pipeline_override": {
+                        "RecipePolicy": {
+                            "attach": {
+                                "priority": "Cookie"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Popcorn",
+                    "label": "惊奇爆谷 → 小份波波饼",
+                    "pipeline_override": {
+                        "RecipePolicy": {
+                            "attach": {
+                                "priority": "Popcorn"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "global_option": [
+        "WindowPin"
+    ]
+}
