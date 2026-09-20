@@ -162,8 +162,11 @@ class Workflow:
         self.act("HomeOpenCooking")
         self.wait_for(["HomeCookingPage"])
         image = self.frame()
-        busy = self.reco("HomeCookingQueue", image)
-        if not busy:
+        idle = self.reco("HomeCookingIdle", image)
+        if not idle and not (self.reco("HomeCookingQueue", image) or
+                             self.reco("HomeCookingDone", image)):
+            raise RuntimeError("无法确认烹饪槽状态，保留现有队列")
+        if idle:
             self.act("HomeCookingAll")
             policy = self.context.get_node_object("RecipePolicy")
             candidates = recipe_order(policy.attach if policy else {})
@@ -190,13 +193,18 @@ class Workflow:
             if needed == 0 or available < needed:
                 raise RuntimeError("制作数量超出材料库存")
             self.act("HomeCookingStart")
-            self.wait_for(["HomeCookingQueue"])
+            self.wait_for(["HomeCookingQueue", "HomeCookingDone"])
             self.log("已加入制作队列：" + selected)
         else:
             self.log("烹饪锅已有队列，保留原队列并等待完成")
         deadline = time.monotonic() + 90
         while time.monotonic() < deadline:
-            completed, total = self.counter("HomeCookingQueue")
+            image = self.frame()
+            if self.reco("HomeCookingDone", image):
+                self.log("食物已制作完成，重新收获后补餐")
+                self.collect()
+                return
+            completed, total = self.counter("HomeCookingQueue", image)
             if total > 0 and completed == total:
                 self.log("食物已制作完成，重新收获后补餐")
                 self.collect()

@@ -27,6 +27,10 @@ class CookingHarness(Workflow):
             self.selected = node.removeprefix("HomeCookingChoose")
 
     def reco(self, node, image):
+        if node == "HomeCookingIdle":
+            return not self.busy
+        if node == "HomeCookingDone":
+            return False
         if node == "HomeCookingQueue":
             return self.busy
         if node == "HomeCookingInsufficient":
@@ -75,3 +79,22 @@ def test_single_portion_and_disabled_candidate_are_respected():
     assert "HomeCookingChooseCookie" not in w.actions
     assert "HomeCookingMin" in w.actions
     assert "HomeCookingMax" not in w.actions
+
+
+def test_unreadable_queue_does_not_start_another_recipe():
+    import pytest
+
+    w = CookingHarness()
+    w.reco = lambda *args: False
+    with pytest.raises(RuntimeError, match="烹饪槽状态"):
+        w.cook()
+    assert "HomeCookingStart" not in w.actions
+
+
+def test_finished_queue_is_collected_when_counter_is_unreadable():
+    w = CookingHarness(busy=True)
+    w.reco = lambda node, image: node == "HomeCookingDone"
+    w.counter = lambda *args: (_ for _ in ()).throw(AssertionError("Unreadable counter"))
+    w.cook()
+    assert w.actions[-1] == "CollectCompletedFood"
+    assert "HomeCookingStart" not in w.actions

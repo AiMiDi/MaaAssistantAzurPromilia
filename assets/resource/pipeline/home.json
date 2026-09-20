@@ -6,19 +6,23 @@
             "HomeCookingPage",
             {
                 "recognition": "OCR",
-                "expected": "小份波波饼",
+                "expected": "^小份波波饼$",
                 "roi": [
-                    612,
-                    225,
-                    100,
-                    43
+                    355,
+                    230,
+                    445,
+                    360
                 ]
             }
         ],
+        "box_index": 2,
         "action": "Click",
-        "target": [
-            666,
-            201
+        "target": true,
+        "target_offset": [
+            0,
+            -45,
+            0,
+            0
         ],
         "post_delay": 600
     },
@@ -731,33 +735,31 @@
         "box_index": 1
     },
     "HomeCookingChoosePopcorn": {
-        "action": "Click",
-        "target": [
-            410,
-            200
-        ],
-        "post_delay": 600,
         "recognition": "And",
         "all_of": [
             "SupportedFrame",
+            "HomeCookingPage",
             {
-                "recognition": "And",
-                "all_of": [
-                    "HomeCookingPage",
-                    {
-                        "recognition": "OCR",
-                        "expected": "^惊奇爆谷$",
-                        "roi": [
-                            352,
-                            228,
-                            110,
-                            46
-                        ]
-                    }
+                "recognition": "OCR",
+                "expected": "^惊奇爆谷$",
+                "roi": [
+                    355,
+                    230,
+                    445,
+                    360
                 ]
             }
         ],
-        "box_index": 1
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "target_offset": [
+            0,
+            -45,
+            0,
+            0
+        ],
+        "post_delay": 600
     },
     "HomeCookingMin": {
         "action": "Click",
@@ -783,21 +785,22 @@
         "only_rec": true,
         "expected": "^\\d+\\s*/\\s*\\d+$",
         "roi": [
-            880,
-            237,
-            43,
-            20
+            878,
+            242,
+            48,
+            15
         ]
     },
     "HomeCookingQueue": {
         "recognition": "OCR",
         "expected": "^\\d+\\s*/\\s*\\d+$",
         "roi": [
-            217,
-            368,
-            83,
-            40
-        ]
+            221,
+            382,
+            58,
+            17
+        ],
+        "only_rec": true
     },
     "HomeFoodAdded": {
         "recognition": "OCR",
@@ -840,6 +843,38 @@
         "any_of": [
             "HomeCookingCookie",
             "HomeCookingPopcorn"
+        ]
+    },
+    "HomeCookingIdle": {
+        "recognition": "And",
+        "all_of": [
+            "HomeCookingPage",
+            {
+                "recognition": "OCR",
+                "expected": "^空闲中$",
+                "roi": [
+                    216,
+                    375,
+                    86,
+                    45
+                ]
+            }
+        ]
+    },
+    "HomeCookingDone": {
+        "recognition": "And",
+        "all_of": [
+            "HomeCookingPage",
+            {
+                "recognition": "OCR",
+                "expected": "制作完成",
+                "roi": [
+                    222,
+                    398,
+                    103,
+                    30
+                ]
+            }
         ]
     }
 }
