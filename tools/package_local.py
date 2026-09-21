@@ -1,6 +1,7 @@
 """Assemble local MFAAvalonia UI using the same native runtime as the agent."""
 import shutil
 import filecmp
+import json
 from pathlib import Path
 import maa
 
@@ -15,6 +16,15 @@ def main():
                     ignore=shutil.ignore_patterns("__pycache__", "my_action.py", "my_reco.py"))
     for name in ("interface.json", "welcome.md"):
         shutil.copy2(ROOT / "assets" / name, destination / name)
+    # MFA 2.16.1 runs pretasks from resource/base instead of the PI directory.
+    # Absolute paths also work with clients that follow the PI CWD convention.
+    (destination / "resource/base").mkdir(parents=True, exist_ok=True)
+    interface_path = destination / "interface.json"
+    interface = json.loads(interface_path.read_text(encoding="utf-8"))
+    if "pretask" in interface:
+        interface["pretask"]["exec"] = str(ROOT / ".venv/Scripts/python.exe")
+        interface["pretask"]["args"] = ["-X", "utf8", str(destination / "agent/launcher.py")]
+        interface_path.write_text(json.dumps(interface, ensure_ascii=False, indent=4) + "\n", encoding="utf-8")
     shutil.copy2(ROOT / "LICENSE", destination / "LICENSE")
     binaries = Path(maa.__file__).parent / "bin"
     native = destination / "runtimes/win-x64/native"

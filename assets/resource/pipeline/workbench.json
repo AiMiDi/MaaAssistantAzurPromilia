@@ -271,5 +271,697 @@
             0
         ],
         "post_delay": 800
+    },
+    "WorkbenchSelectedSoftwoodBoard": {
+        "recognition": "And",
+        "all_of": [
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^软木板$",
+                "roi": [
+                    850,
+                    130,
+                    220,
+                    33
+                ]
+            }
+        ]
+    },
+    "WorkbenchSelectedChickCarving": {
+        "recognition": "And",
+        "all_of": [
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^苗鸡木雕$",
+                "roi": [
+                    850,
+                    130,
+                    220,
+                    33
+                ]
+            }
+        ]
+    },
+    "WorkbenchOwned": {
+        "recognition": "OCR",
+        "expected": "拥有数量.*\\d+",
+        "roi": [
+            857,
+            158,
+            185,
+            26
+        ]
+    },
+    "WorkbenchMaterial": {
+        "recognition": "OCR",
+        "expected": "^\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            855,
+            240,
+            90,
+            18
+        ],
+        "only_rec": true
+    },
+    "WorkbenchIdle": {
+        "recognition": "And",
+        "all_of": [
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^空闲中$",
+                "roi": [
+                    216,
+                    375,
+                    86,
+                    45
+                ]
+            }
+        ]
+    },
+    "WorkbenchQueue": {
+        "recognition": "OCR",
+        "expected": "^\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            221,
+            382,
+            58,
+            17
+        ],
+        "only_rec": true
+    },
+    "WorkbenchDone": {
+        "recognition": "And",
+        "all_of": [
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "制作完成",
+                "roi": [
+                    222,
+                    398,
+                    103,
+                    30
+                ]
+            }
+        ]
+    },
+    "WorkbenchMin": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^(软木板|苗鸡木雕|迷你狼神石俑|浮音风铃|密文环饰|凝质晶球|软绒围巾)$",
+                "roi": [
+                    850,
+                    130,
+                    220,
+                    33
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            876,
+            555
+        ],
+        "post_delay": 300
+    },
+    "WorkbenchPlus": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^(软木板|苗鸡木雕|迷你狼神石俑|浮音风铃|密文环饰|凝质晶球|软绒围巾)$",
+                "roi": [
+                    850,
+                    130,
+                    220,
+                    33
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            1104,
+            555
+        ],
+        "post_delay": 150
+    },
+    "WorkbenchStart": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^(软木板|苗鸡木雕|迷你狼神石俑|浮音风铃|密文环饰|凝质晶球|软绒围巾)$",
+                "roi": [
+                    850,
+                    130,
+                    220,
+                    33
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            1036,
+            601
+        ],
+        "post_delay": 1000
+    },
+    "WorkbenchSelectedWolfFigurine": {
+        "recognition": "And",
+        "all_of": [
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^迷你狼神石俑$",
+                "roi": [
+                    850,
+                    130,
+                    240,
+                    33
+                ]
+            }
+        ]
+    },
+    "WorkbenchSelectedWindChime": {
+        "recognition": "And",
+        "all_of": [
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^浮音风铃$",
+                "roi": [
+                    850,
+                    130,
+                    240,
+                    33
+                ]
+            }
+        ]
+    },
+    "WorkbenchSelectedCrystalBall": {
+        "recognition": "And",
+        "all_of": [
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^凝质晶球$",
+                "roi": [
+                    850,
+                    130,
+                    240,
+                    33
+                ]
+            }
+        ]
+    },
+    "WorkbenchMaterial2": {
+        "recognition": "OCR",
+        "expected": "^\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            881,
+            310,
+            90,
+            18
+        ],
+        "only_rec": true
+    },
+    "WorkbenchBuildings": {
+        "recognition": "OCR",
+        "expected": "^工作台$",
+        "roi": [
+            110,
+            120,
+            905,
+            410
+        ],
+        "order_by": "Vertical"
+    },
+    "WorkbenchSelectedInscribedRing": {
+        "recognition": "And",
+        "all_of": [
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^密文环饰$",
+                "roi": [
+                    850,
+                    130,
+                    240,
+                    33
+                ]
+            }
+        ]
+    },
+    "WorkbenchSelectedSoftScarf": {
+        "recognition": "And",
+        "all_of": [
+            "WorkbenchPage",
+            {
+                "recognition": "OCR",
+                "expected": "^软绒围巾$",
+                "roi": [
+                    850,
+                    130,
+                    240,
+                    33
+                ]
+            }
+        ]
+    },
+    "FurnacePage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "^熔炉",
+                "roi": [
+                    65,
+                    105,
+                    170,
+                    50
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "开始生产",
+                "roi": [
+                    950,
+                    575,
+                    150,
+                    52
+                ]
+            }
+        ]
+    },
+    "ProductionPage": {
+        "recognition": "Or",
+        "any_of": [
+            "WorkbenchPage",
+            "FurnacePage"
+        ]
+    },
+    "ProductionClose": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "ProductionPage"
+        ],
+        "action": "Click",
+        "target": [
+            1247,
+            29
+        ],
+        "post_delay": 600
+    },
+    "ProductionOwned": {
+        "recognition": "OCR",
+        "expected": "拥有数量.*\\d+",
+        "roi": [
+            857,
+            158,
+            185,
+            26
+        ]
+    },
+    "ProductionMaterial": {
+        "recognition": "OCR",
+        "expected": "^\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            855,
+            240,
+            90,
+            18
+        ],
+        "only_rec": true
+    },
+    "ProductionMaterial2": {
+        "recognition": "OCR",
+        "expected": "^\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            881,
+            310,
+            90,
+            18
+        ],
+        "only_rec": true
+    },
+    "ProductionIdle": {
+        "recognition": "And",
+        "all_of": [
+            "ProductionPage",
+            {
+                "recognition": "OCR",
+                "expected": "^空闲中$",
+                "roi": [
+                    216,
+                    375,
+                    86,
+                    45
+                ]
+            }
+        ]
+    },
+    "ProductionQueue": {
+        "recognition": "OCR",
+        "expected": "^\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            221,
+            382,
+            58,
+            17
+        ],
+        "only_rec": true
+    },
+    "ProductionDone": {
+        "recognition": "And",
+        "all_of": [
+            "ProductionPage",
+            {
+                "recognition": "OCR",
+                "expected": "制作完成",
+                "roi": [
+                    222,
+                    398,
+                    103,
+                    30
+                ]
+            }
+        ]
+    },
+    "ProductionMin": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "ProductionPage",
+            {
+                "recognition": "OCR",
+                "expected": "^(软木板|苗鸡木雕|迷你狼神石俑|浮音风铃|密文环饰|凝质晶球|软绒围巾|木炭|尘石砖|风铜锭)$",
+                "roi": [
+                    850,
+                    130,
+                    220,
+                    33
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            876,
+            555
+        ],
+        "post_delay": 300
+    },
+    "ProductionPlus": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "ProductionPage",
+            {
+                "recognition": "OCR",
+                "expected": "^(软木板|苗鸡木雕|迷你狼神石俑|浮音风铃|密文环饰|凝质晶球|软绒围巾|木炭|尘石砖|风铜锭)$",
+                "roi": [
+                    850,
+                    130,
+                    220,
+                    33
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            1104,
+            555
+        ],
+        "post_delay": 150
+    },
+    "ProductionStart": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "ProductionPage",
+            {
+                "recognition": "OCR",
+                "expected": "^(软木板|苗鸡木雕|迷你狼神石俑|浮音风铃|密文环饰|凝质晶球|软绒围巾|木炭|尘石砖|风铜锭)$",
+                "roi": [
+                    850,
+                    130,
+                    220,
+                    33
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            1036,
+            601
+        ],
+        "post_delay": 1000
+    },
+    "WorkbenchSelectCharcoal": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "FurnacePage",
+            {
+                "recognition": "OCR",
+                "expected": "^木炭$",
+                "roi": [
+                    355,
+                    140,
+                    445,
+                    180
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "post_delay": 700
+    },
+    "WorkbenchSelectedCharcoal": {
+        "recognition": "And",
+        "all_of": [
+            "FurnacePage",
+            {
+                "recognition": "OCR",
+                "expected": "^木炭$",
+                "roi": [
+                    850,
+                    130,
+                    240,
+                    33
+                ]
+            }
+        ]
+    },
+    "WorkbenchSelectStoneBrick": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "FurnacePage",
+            {
+                "recognition": "OCR",
+                "expected": "^尘石砖$",
+                "roi": [
+                    355,
+                    140,
+                    445,
+                    180
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "post_delay": 700
+    },
+    "WorkbenchSelectedStoneBrick": {
+        "recognition": "And",
+        "all_of": [
+            "FurnacePage",
+            {
+                "recognition": "OCR",
+                "expected": "^尘石砖$",
+                "roi": [
+                    850,
+                    130,
+                    240,
+                    33
+                ]
+            }
+        ]
+    },
+    "WorkbenchSelectCopperIngot": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "FurnacePage",
+            {
+                "recognition": "OCR",
+                "expected": "^风铜锭$",
+                "roi": [
+                    355,
+                    140,
+                    445,
+                    180
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "post_delay": 700
+    },
+    "WorkbenchSelectedCopperIngot": {
+        "recognition": "And",
+        "all_of": [
+            "FurnacePage",
+            {
+                "recognition": "OCR",
+                "expected": "^风铜锭$",
+                "roi": [
+                    850,
+                    130,
+                    240,
+                    33
+                ]
+            }
+        ]
+    },
+    "ProductionBuildings": {
+        "recognition": "OCR",
+        "expected": "^(工作台|熔炉)$",
+        "roi": [
+            110,
+            120,
+            905,
+            470
+        ],
+        "order_by": "Vertical"
+    },
+    "FuelChoicePage": {
+        "recognition": "OCR",
+        "expected": "选择使用的原料",
+        "roi": [
+            260,
+            180,
+            230,
+            45
+        ]
+    },
+    "FuelChoiceOpen": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WorkbenchSelectedCharcoal"
+        ],
+        "action": "Click",
+        "target": [
+            908,
+            217
+        ],
+        "post_delay": 600
+    },
+    "FuelSelectSoftwood": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "FuelChoicePage",
+            {
+                "recognition": "TemplateMatch",
+                "template": "home/fuel_softwood.png",
+                "roi": [
+                    400,
+                    250,
+                    420,
+                    100
+                ],
+                "threshold": 0.9
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "post_delay": 400
+    },
+    "FuelChoiceConfirm": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "FuelChoicePage",
+            {
+                "recognition": "OCR",
+                "expected": "质地稍软的木材",
+                "roi": [
+                    420,
+                    393,
+                    450,
+                    40
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            925,
+            500
+        ],
+        "post_delay": 500
+    },
+    "ProductionBuildingsTop": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "HomeBuildingsPage"
+        ],
+        "action": "Swipe",
+        "begin": [
+            975,
+            170
+        ],
+        "end": [
+            975,
+            605
+        ],
+        "duration": 350,
+        "post_delay": 700
+    },
+    "ProductionBuildingsDown": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "HomeBuildingsPage"
+        ],
+        "action": "Swipe",
+        "begin": [
+            975,
+            580
+        ],
+        "end": [
+            975,
+            480
+        ],
+        "duration": 800,
+        "post_delay": 700
+    },
+    "ProductionAnchors": {
+        "recognition": "OCR",
+        "expected": "NO[.。]?\\d+",
+        "roi": [
+            120,
+            100,
+            900,
+            520
+        ]
     }
 }

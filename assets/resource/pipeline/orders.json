@@ -1,0 +1,327 @@
+{
+    "OrderNearby": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "^订单看板$",
+                "roi": [
+                    790,
+                    350,
+                    170,
+                    75
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "^[Ff]$",
+                "roi": [
+                    710,
+                    350,
+                    50,
+                    65
+                ]
+            }
+        ]
+    },
+    "OrderOpen": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "OrderNearby"
+        ],
+        "action": "LongPressKey",
+        "key": 70,
+        "duration": 100,
+        "post_delay": 1400
+    },
+    "OrderSettlement": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "出货结算",
+                "roi": [
+                    280,
+                    145,
+                    150,
+                    45
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "昨日总收入",
+                "roi": [
+                    280,
+                    185,
+                    155,
+                    40
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "^确认$",
+                "roi": [
+                    570,
+                    567,
+                    150,
+                    45
+                ]
+            }
+        ]
+    },
+    "OrderSettlementConfirm": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "OrderSettlement"
+        ],
+        "action": "Click",
+        "target": [
+            642,
+            588
+        ],
+        "post_delay": 1300
+    },
+    "OrderNews": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "今日集市行情",
+                "roi": [
+                    470,
+                    190,
+                    210,
+                    40
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "明日预告",
+                "roi": [
+                    470,
+                    390,
+                    160,
+                    40
+                ]
+            }
+        ]
+    },
+    "OrderNewsClose": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "OrderNews"
+        ],
+        "action": "Click",
+        "target": [
+            1209,
+            123
+        ],
+        "post_delay": 900
+    },
+    "OrderMerchantPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "行商背包",
+                "roi": [
+                    90,
+                    20,
+                    90,
+                    40
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "提前售出",
+                "roi": [
+                    1100,
+                    573,
+                    110,
+                    50
+                ]
+            }
+        ]
+    },
+    "OrderSelectBoard": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "OrderMerchantPage",
+            {
+                "recognition": "OCR",
+                "expected": "订单看板",
+                "roi": [
+                    13,
+                    652,
+                    90,
+                    40
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            53,
+            635
+        ],
+        "post_delay": 1000
+    },
+    "OrderBoardPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "订单看板",
+                "roi": [
+                    85,
+                    20,
+                    100,
+                    40
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "总刷新次数",
+                "roi": [
+                    1160,
+                    655,
+                    115,
+                    42
+                ]
+            }
+        ]
+    },
+    "OrderSelectShipping": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "OrderBoardPage",
+            {
+                "recognition": "OCR",
+                "expected": "出货箱",
+                "roi": [
+                    15,
+                    650,
+                    85,
+                    40
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            53,
+            635
+        ],
+        "post_delay": 1000
+    },
+    "OrderCardTitle": {
+        "recognition": "OCR",
+        "roi": [
+            440,
+            222,
+            165,
+            38
+        ]
+    },
+    "OrderCardCounter": {
+        "recognition": "OCR",
+        "expected": "^\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            493,
+            326,
+            75,
+            23
+        ],
+        "only_rec": true
+    },
+    "OrderCardSubmit": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "OrderBoardPage",
+            {
+                "recognition": "OCR",
+                "expected": "^兽灵之角征集$",
+                "roi": [
+                    440,
+                    222,
+                    165,
+                    38
+                ]
+            },
+            "OrderCardCounter",
+            {
+                "recognition": "OCR",
+                "expected": "^提交订单$",
+                "roi": [
+                    460,
+                    373,
+                    145,
+                    39
+                ]
+            }
+        ],
+        "box_index": 4,
+        "action": "Click",
+        "target": true,
+        "post_delay": 1200
+    },
+    "OrderScrollDown": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "OrderBoardPage"
+        ],
+        "action": "Scroll",
+        "target": [
+            1010,
+            490
+        ],
+        "dy": -450,
+        "post_delay": 900
+    },
+    "OrderScrollUp": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "OrderBoardPage"
+        ],
+        "action": "Scroll",
+        "target": [
+            1010,
+            490
+        ],
+        "dy": 6000,
+        "post_delay": 900
+    },
+    "OrderCoins": {
+        "recognition": "OCR",
+        "expected": ".+"
+    },
+    "OrderTomorrow": {
+        "recognition": "OCR",
+        "expected": ".+"
+    },
+    "OrderClose": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "Or",
+                "any_of": [
+                    "OrderBoardPage",
+                    "OrderMerchantPage"
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            44,
+            36
+        ],
+        "post_delay": 1000
+    }
+}

@@ -23,14 +23,12 @@ def parse_counter(text):
 
 RECIPES = {
     "Cookie": ("小份波波饼", "HomeCookingChooseCookie", "HomeCookingCookie"),
-    "Popcorn": ("惊奇爆谷", "HomeCookingChoosePopcorn", "HomeCookingPopcorn"),
 }
 
 
 def recipe_order(policy):
-    priority = policy.get("priority", "Cookie")
-    ordered = [priority] + [key for key in RECIPES if key != priority]
-    return [key for key in ordered if key in RECIPES and policy.get(key, True)]
+    # Feeding is deliberately wheat-cookie-only, including old saved GUI policies.
+    return ["Cookie"]
 
 
 class SupportedFrame(CustomRecognition):
@@ -38,6 +36,15 @@ class SupportedFrame(CustomRecognition):
         ok = supported_frame(argv.image)
         return self.AnalyzeResult((0, 0, 1280, 720) if ok else None,
                                   {"supported_16_9": ok})
+
+
+class SupportedStartupFrame(CustomRecognition):
+    """Text-located startup dialogs may be handled on wider game windows."""
+    def analyze(self, context, argv):
+        image = argv.image
+        ok = bool(image is not None and image.shape[0] == 720
+                  and 960 <= image.shape[1] <= 2400 and image.std() >= 3)
+        return self.AnalyzeResult((0, 0, image.shape[1], 720) if ok else None, {})
 
 
 class Workflow:
@@ -51,7 +58,7 @@ class Workflow:
         if time.monotonic() >= self.deadline:
             raise TimeoutError("任务超时，保留当前页面供检查")
 
-    def frame(self):
+    def frame(self, startup=False):
         self.check()
         controller = self.context.tasker.controller
         job = controller.post_screencap()
@@ -62,9 +69,39 @@ class Workflow:
                 raise TimeoutError("游戏截图超时")
             time.sleep(0.1)
         image = controller.cached_image
-        if not job.succeeded or not supported_frame(image):
+        if not job.succeeded or image is None:
+            raise RuntimeError("游戏截图失败")
+        if not startup and not supported_frame(image):
             raise RuntimeError("需要非黑屏的 16:9 游戏画面；建议 1920×1080 或 1280×720")
         return image
+
+    def startup(self, timeout=600):
+        deadline = time.monotonic() + timeout
+        updates = starts = 0
+        self.log("等待游戏加载；识别到资源更新时自动确认")
+        ready_pages = ["HomeHud", "MenuPage", "HomeCorePage", "HomeBuildingsPage", "WorkbenchPage", "FurnacePage",
+                       "HomeCookingPage", "HomeSeedsPage", "HomeFoodPage", "MailPage", "DailyPage", "SignInPage",
+                       "HomeFarmDetailPage", "HomeCollectionPage", "HomeLevelUp", "MailEmptyDialog",
+                       "QuestPage", "TraveloguePage", "ActivityPage", "RewardPopup",
+                       "OrderBoardPage", "OrderMerchantPage", "OrderSettlement", "OrderNews", "OrderNearby"]
+        while time.monotonic() < deadline:
+            image = self.frame(startup=True)
+            if self.reco("ConfirmGameUpdate", image):
+                if updates >= 3:
+                    raise RuntimeError("资源更新提示重复出现，请检查下载是否失败")
+                self.act("ConfirmGameUpdate")
+                updates += 1
+                self.log("已确认游戏资源更新，等待下载和加载")
+            elif self.reco("StartGame", image):
+                if starts >= 3:
+                    raise RuntimeError("开始旅程后未成功进入游戏")
+                self.act("StartGame")
+                starts += 1
+            elif supported_frame(image) and any(self.reco(page, image) for page in ready_pages):
+                self.log("游戏已进入可识别页面")
+                return
+            time.sleep(1)
+        raise TimeoutError("等待游戏加载超时，请检查登录、网络及 16:9 分辨率设置")
 
     def reco(self, node, image):
         self.check()
@@ -104,7 +141,10 @@ class Workflow:
 
     def navigate(self, target):
         routes = [
+            ("OrderBoardPage", "OrderClose"),
+            ("OrderMerchantPage", "OrderClose"),
             ("WorkbenchPage", "WorkbenchClose"),
+            ("FurnacePage", "ProductionClose"),
             ("HomeSeedsPage", "HomeCloseSeeds"),
             ("HomeFarmDetailPage", "HomeCloseFarm"),
             ("HomeCookingPage", "HomeCloseCooking"),
@@ -155,8 +195,25 @@ class Workflow:
         if page == "HomeLevelUp":
             self.act("HomeLevelUp")
             self.wait_for(["HomeBuildingsPage"])
+        self.collect_ranch()
 
-    def cook(self, maximum=True):
+    def collect_ranch(self):
+        self.navigate("HomeCorePage")
+        if not self.reco("HomeRanchBasket", self.frame()):
+            self.log("奇波牧场没有可领取篮子")
+            return
+        self.act("HomeRanchCollect")
+        self.wait_for(["HomeRanchCollectionPage"])
+        self.log("奇波牧场产物已领取，已确认牧场收获清单")
+        self.act("HomeCloseCollection")
+        page, _ = self.wait_for(["HomeLevelUp", "HomeCorePage"])
+        if page == "HomeLevelUp":
+            self.act("HomeLevelUp")
+            self.wait_for(["HomeCorePage"])
+        if self.reco("HomeRanchBasket", self.frame()):
+            raise RuntimeError("牧场收获后篮子仍存在，请检查领取结果")
+
+    def cook(self, maximum=True, quantity=None):
         self.navigate("HomeCorePage")
         self.act("HomeOpenBuildings")
         self.wait_for(["HomeBuildingsPage"])
@@ -179,8 +236,15 @@ class Workflow:
                     continue
                 self.act(choose)
                 self.wait_for([page])
+                self.act("HomeCookingMin")
                 if self.reco("HomeCookingInsufficient", self.frame()):
-                    self.log(label + "材料不足，尝试下一候选")
+                    self.log(label + "材料不足，本轮不制作其他食物")
+                    if quantity is not None:
+                        available, unit = self.counter("HomeCookingMaterials")
+                        if unit != 4:
+                            raise RuntimeError("小麦饼配方用量不符")
+                        gap = max(0, (quantity if maximum else 1) * 4 - available)
+                        self.log(f"普通金麦缺口 {gap}，对应 {(gap + 3) // 4} 颗普通金麦种子的产量；需再扣除在田及队列，未添加种子")
                     continue
                 available, needed = self.counter("HomeCookingMaterials")
                 if available >= needed > 0:
@@ -189,9 +253,25 @@ class Workflow:
             if selected is None:
                 self.log("本轮没有可制作的候选食物，继续补充现有料理")
                 return
-            self.act("HomeCookingMax" if maximum else "HomeCookingMin")
+            if quantity is not None:
+                requested = quantity if maximum else 1
+                if not 1 <= requested <= 100:
+                    raise RuntimeError("本轮饼干缺口超出单批100份上限")
+                available, unit_cost = self.counter("HomeCookingMaterials")
+                if unit_cost != 4:
+                    raise RuntimeError("小麦饼材料数量与配方不符")
+                if available < requested * 4:
+                    wheat_gap = requested * 4 - available
+                    self.log(f"补餐还缺普通金麦 {wheat_gap}；按每颗种子4个小麦需 {(wheat_gap + 3) // 4} 颗种子的产量，补种前还需扣除在田和种子队列")
+                    requested = min(requested, available // 4)
+                if requested <= 0:
+                    return
+                for _ in range(requested - 1):
+                    self.act("HomeCookingPlus")
+            else:
+                self.act("HomeCookingMax" if maximum else "HomeCookingMin")
             available, needed = self.counter("HomeCookingMaterials")
-            if needed == 0 or available < needed:
+            if needed == 0 or available < needed or (quantity is not None and needed != requested * 4):
                 raise RuntimeError("制作数量超出材料库存")
             self.act("HomeCookingStart")
             self.wait_for(["HomeCookingQueue", "HomeCookingDone"])
@@ -218,18 +298,53 @@ class Workflow:
         self.navigate("HomeCorePage")
         self.act("HomeOpenFood")
         self.wait_for(["HomeFoodPage"])
-        self.act("HomeFoodAddAll")
-        page, _ = self.wait_for(["HomeFoodAdded", "HomeFoodUnavailable"], timeout=4)
-        self.log("餐桌一键添加完成" if page == "HomeFoodAdded" else "没有可填充的料理，本次未补充食物")
+        before, capacity = self.counter("HomeFoodSatiety")
+        if before >= capacity:
+            self.log("餐桌已满，无需添加小麦饼")
+        elif not self.reco("HomeFoodCookie", self.frame()):
+            self.log("当前食物列表没有小份波波饼，保留其他食物")
+        else:
+            self.act("HomeFoodSelectCookie")
+            after, new_capacity = self.counter("HomeFoodSatiety")
+            if capacity != new_capacity or after <= before:
+                raise RuntimeError("选择小麦饼后未确认餐桌饱腹值增加")
+            self.log(f"仅添加小份波波饼：饱腹值 {before} → {after}/{capacity}")
         self.act("HomeCloseFood")
         self.wait_for(["HomeCorePage"])
 
     def home(self, params):
         self.collect()
         if params.get("cook", True):
-            self.cook(params.get("maximum", True))
+            quantity = self.food_needs_cooking()
+            if quantity:
+                self.cook(params.get("maximum", True), quantity=quantity)
         self.feed()
-        self.log("家园流程完成：收获 → 制作或检查队列 → 补餐")
+        self.log("家园流程完成：收获 → 按需制作小麦饼 → 仅用小麦饼补餐")
+
+    def food_needs_cooking(self):
+        self.navigate("HomeCorePage")
+        self.act("HomeOpenFood")
+        self.wait_for(["HomeFoodPage"])
+        current, capacity = self.counter("HomeFoodSatiety")
+        needed = max(0, (capacity - current + 24) // 25)
+        stock = 0
+        cookie = self.reco("HomeFoodCookie", self.frame()) if needed else None
+        if cookie:
+            x, _, width, _ = cookie.box
+            result = self.context.run_recognition("HomeFoodCookieStock", self.frame(), {
+                "HomeFoodCookieStock": {"roi": [x + width // 2 - 39, 664, 78, 23]}})
+            if not result or not result.hit or not re.fullmatch(r"\d+", result.best_result.text):
+                raise RuntimeError("无法读取小麦饼库存，停止新增制作")
+            stock = int(result.best_result.text)
+        self.act("HomeCloseFood")
+        self.wait_for(["HomeCorePage"])
+        if needed == 0 or stock >= needed:
+            self.log(f"餐桌缺口 {capacity-current}，需饼干 {needed}；已有饼干足够，本轮制作、小麦和种子需求均为0")
+            return 0
+        from food_supply import plan_current_gap
+        plan = plan_current_gap(current, capacity, stock)
+        self.log(f"餐桌缺口 {plan['satiety_deficit']}，需饼干 {needed}；扣除库存 {stock} 后制作 {plan['cookies_to_make']} 份，需普通金麦 {plan['wheat_required']}")
+        return plan['cookies_to_make']
 
     def mail(self):
         self.navigate("MenuPage")
@@ -259,12 +374,22 @@ class Workflow:
             self.wait_signin_settled()
             self.log("签到页没有识别到可领取卡片")
         self.act("CloseSignIn")
+        self.wait_for(["ActivityPage", "MenuPage"])
+        self.navigate("MenuPage")
 
     def wait_signin_settled(self):
         deadline = time.monotonic() + 10
         consecutive = 0
+        popups = 0
         while time.monotonic() < deadline:
             image = self.frame()
+            if self.reco("RewardPopup", image):
+                if popups >= 2:
+                    raise RuntimeError("签到奖励弹窗重复出现")
+                self.act("RewardPopup")
+                popups += 1
+                consecutive = 0
+                continue
             if self.reco("SignInPage", image) and not self.reco("SignInClaimProbe", image):
                 consecutive += 1
                 if consecutive >= 3:
@@ -379,11 +504,24 @@ class RunRoutine(CustomAction):
             return False
 
     def execute(self, context, argv):
-        workflow = Workflow(context)
+        workflow = Workflow(context, timeout=840)
         try:
             params = json.loads(argv.custom_action_param or "{}")
             kind = params.get("kind")
-            if kind == "home":
+            workflow.startup()
+            workflow.deadline = time.monotonic() + 240
+            if kind == "startup":
+                pass
+            elif kind == "orders":
+                workflow.deadline = time.monotonic() + 1200
+                from order_workflow import run_orders
+                run_orders(workflow)
+            elif kind == "workbench":
+                workflow.deadline = time.monotonic() + 1200
+                from workbench import run_target
+                policy = context.get_node_object("WorkbenchPolicy")
+                run_target(workflow, policy.attach if policy else {})
+            elif kind == "home":
                 workflow.home(params)
             elif kind == "collect":
                 workflow.collect()
@@ -407,4 +545,5 @@ class RunRoutine(CustomAction):
 
 def register(target):
     target.register_custom_recognition("SupportedFrame", SupportedFrame())
+    target.register_custom_recognition("SupportedStartupFrame", SupportedStartupFrame())
     target.register_custom_action("RunRoutine", RunRoutine())

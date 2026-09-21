@@ -37,6 +37,7 @@ def main():
     parser.add_argument("--input", default="Seize", choices=["Seize", "PostMessage", "PostMessageWithCursorPos"])
     parser.add_argument("--timeout", type=float, default=270)
     parser.add_argument("--output", default=str(ROOT / "debug" / "last.png"))
+    parser.add_argument("--override", type=Path, help="Pipeline overrides JSON for a bounded development run")
     args = parser.parse_args()
     Toolkit.init_option(ROOT / "debug", {"logging": True, "stdout_level": 2})
     resource = Resource()
@@ -55,10 +56,13 @@ def main():
     if not wait(controller.post_screencap(), 15, tasker).succeeded:
         raise RuntimeError("Game capture failed")
     img = controller.cached_image
-    if img.shape[:2] != (720, 1280) or img.std() < 3:
+    startup_entry = args.entry in {"ConfirmGameUpdate", "StartGame", "LaunchAndEnter"}
+    if not args.inspect and not startup_entry and (img.shape[:2] != (720, 1280) or img.std() < 3):
         raise RuntimeError("Expected a nonblank 16:9 game frame. Change the game to 1280x720 or 1920x1080.")
     entry = "InspectScreen" if args.inspect else args.entry
     override = {"InspectScreen": {"recognition": "OCR", "action": "DoNothing"}} if args.inspect else {}
+    if args.override:
+        override.update(json.loads(args.override.read_text(encoding="utf-8")))
     try:
         job = wait(tasker.post_task(entry, override), args.timeout, tasker)
         detail = job.get()

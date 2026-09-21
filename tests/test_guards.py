@@ -36,11 +36,11 @@ def test_inventory_counter_preserves_order():
 
 
 def test_recipe_priority_and_exclusions():
-    assert recipe_order({}) == ["Cookie", "Popcorn"]
-    assert recipe_order({"priority": "Popcorn"}) == ["Popcorn", "Cookie"]
-    assert recipe_order({"Cookie": False}) == ["Popcorn"]
-    assert recipe_order({"Cookie": False, "Popcorn": False}) == []
-    assert recipe_order({"priority": "Unknown"}) == ["Cookie", "Popcorn"]
+    assert recipe_order({}) == ["Cookie"]
+    assert recipe_order({"priority": "Popcorn"}) == ["Cookie"]
+    assert recipe_order({"Cookie": False}) == ["Cookie"]
+    assert recipe_order({"Cookie": False, "Popcorn": False}) == ["Cookie"]
+    assert recipe_order({"priority": "Unknown"}) == ["Cookie"]
 
 
 def test_unknown_page_sends_no_input():
@@ -60,4 +60,5 @@ def test_input_nodes_validate_geometry_before_clicking():
     for name, node in nodes.items():
         if node.get("action") in ("Click", "LongPress", "ClickKey", "LongPressKey", "Scroll"):
             assert node["recognition"] == "And", name
-            assert "SupportedFrame" in node["all_of"], name
+            guard = "SupportedStartupFrame" if name in {"ConfirmGameUpdate", "StartGame"} else "SupportedFrame"
+            assert guard in node["all_of"], name

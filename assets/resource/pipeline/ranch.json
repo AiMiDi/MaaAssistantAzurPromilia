@@ -1,0 +1,47 @@
+{
+    "HomeRanchBasket": {
+        "recognition": "And",
+        "all_of": [
+            "HomeCorePage",
+            {
+                "recognition": "TemplateMatch",
+                "template": "home/ranch_basket.png",
+                "roi": [
+                    355,
+                    630,
+                    70,
+                    65
+                ],
+                "threshold": 0.85
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeRanchCollect": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "HomeRanchBasket"
+        ],
+        "box_index": 1,
+        "action": "Click",
+        "target": true,
+        "post_delay": 1500
+    },
+    "HomeRanchCollectionPage": {
+        "recognition": "And",
+        "all_of": [
+            "HomeCollectionPage",
+            {
+                "recognition": "OCR",
+                "expected": "^牧场$",
+                "roi": [
+                    530,
+                    250,
+                    220,
+                    37
+                ]
+            }
+        ]
+    }
+}

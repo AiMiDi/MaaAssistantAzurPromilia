@@ -50,12 +50,12 @@ class CookingHarness(Workflow):
         self.actions.append("CollectCompletedFood")
 
 
-def test_missing_first_candidate_falls_back_then_collects():
+def test_missing_cookie_does_not_fall_back_to_other_food():
     w = CookingHarness(missing=("Cookie",))
     w.cook()
-    assert w.actions.index("HomeCookingChooseCookie") < w.actions.index("HomeCookingChoosePopcorn")
-    assert w.actions.index("HomeCookingMax") < w.actions.index("HomeCookingStart")
-    assert w.actions[-1] == "CollectCompletedFood"
+    assert "HomeCookingChooseCookie" in w.actions
+    assert "HomeCookingChoosePopcorn" not in w.actions
+    assert "HomeCookingStart" not in w.actions
 
 
 def test_all_candidates_missing_does_not_start_production():
@@ -73,10 +73,11 @@ def test_existing_queue_is_not_modified():
     assert w.actions[-1] == "CollectCompletedFood"
 
 
-def test_single_portion_and_disabled_candidate_are_respected():
+def test_single_portion_and_cookie_only_override_old_saved_policy():
     w = CookingHarness(policy={"Cookie": False})
     w.cook(maximum=False)
-    assert "HomeCookingChooseCookie" not in w.actions
+    assert "HomeCookingChooseCookie" in w.actions
+    assert "HomeCookingChoosePopcorn" not in w.actions
     assert "HomeCookingMin" in w.actions
     assert "HomeCookingMax" not in w.actions
 
@@ -98,3 +99,20 @@ def test_finished_queue_is_collected_when_counter_is_unreadable():
     w.cook()
     assert w.actions[-1] == "CollectCompletedFood"
     assert "HomeCookingStart" not in w.actions
+
+
+def test_gap_quantity_uses_exact_count_instead_of_maximum():
+    w = CookingHarness()
+    w.counter = lambda node, image=None: (1,1) if node == 'HomeCookingQueue' else (40, 4 * (1 + w.actions.count('HomeCookingPlus')))
+    w.cook(quantity=3)
+    assert w.actions.count('HomeCookingPlus') == 2
+    assert 'HomeCookingMax' not in w.actions
+    assert 'HomeCookingStart' in w.actions
+
+
+def test_gap_quantity_does_not_exceed_available_wheat():
+    w = CookingHarness()
+    w.counter = lambda node, image=None: (1,1) if node == 'HomeCookingQueue' else (8, 4 * (1 + w.actions.count('HomeCookingPlus')))
+    w.cook(quantity=3)
+    assert w.actions.count('HomeCookingPlus') == 1
+    assert any('金麦 4' in text for text in w.messages)

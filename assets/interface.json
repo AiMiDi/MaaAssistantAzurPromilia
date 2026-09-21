@@ -42,15 +42,18 @@
     },
     "task": [
         {
+            "name": "LaunchAndEnter",
+            "label": "启动游戏 · 更新并进入",
+            "entry": "LaunchAndEnter",
+            "description": "通过官方启动器打开游戏，自动确认游戏资源更新，等待加载并进入主界面。登录、验证码需手动完成；等待最多 10 分钟。"
+        },
+        {
             "name": "HomeRoutine",
-            "label": "家园日常 · 收获 → 制作 → 补餐",
+            "label": "家园日常 · 收获 → 小麦饼 → 补餐",
             "entry": "HomeRoutine",
-            "description": "一键收获 → 从启用的低成本候选配方中选择可制作的一种 → 收取成品 → 一键补餐。材料不足换下一种；已有生产队列不取消。制作最多等待90秒。",
+            "description": "收获（含牧场）；先读餐桌缺口并扣除现有饼干，仅制作所缺小麦饼再补餐。小麦不足报告缺口和所需种子产量，不自动整批补种。",
             "option": [
-                "Cooking",
-                "RecipePriority",
-                "CookieCandidate",
-                "PopcornCandidate"
+                "Cooking"
             ]
         },
         {
@@ -61,9 +64,9 @@
         },
         {
             "name": "ClaimSignIn",
-            "label": "签到 · 来自星海的礼赠（测试）",
+            "label": "签到 · 来自星海的礼赠",
             "entry": "ClaimSignIn",
-            "description": "只领取已识别到的当前签到卡片。活动入口变化时会停止。"
+            "description": "领取当前可领取签到卡片，确认卡片状态稳定；已领取则跳过，完成后返回菜单。"
         },
         {
             "name": "ClaimDaily",
@@ -73,14 +76,32 @@
         },
         {
             "name": "HomeCollect",
-            "label": "家园 · 仅一键收获",
-            "entry": "HomeCollect"
+            "label": "家园 · 一键收获（含牧场）",
+            "entry": "HomeCollect",
+            "description": "领取生产、耕作、采集产物，再领取奇波牧场旁的篮子；确认收获清单和篮子消失。"
         },
         {
             "name": "HomeFeed",
-            "label": "家园 · 仅一键补餐",
+            "label": "家园 · 仅添加小麦饼",
             "entry": "HomeFeed",
-            "description": "游戏的一键添加可能放入背包中的所有可用料理，包括饼干和果实。"
+            "description": "只选择小份波波饼填充餐桌；餐桌已满或没有饼干则跳过。"
+        },
+        {
+            "name": "WorkbenchTarget",
+            "label": "工作台 · 商品目标制作（含原料与多设施）",
+            "entry": "WorkbenchTarget",
+            "description": "按目标库存补齐六种商品及软木板、木炭、尘石砖、风铜锭。利用已有材料缓冲，将可开工步骤分配到同类空闲设施；收获验证后继续下游。已有未知队列保留，缺少不可制作原料则报告。",
+            "option": [
+                "WorkbenchItem",
+                "WorkbenchMode",
+                "WorkbenchQuantity"
+            ]
+        },
+        {
+            "name": "HomeOrders",
+            "label": "家园 · 订单看板",
+            "entry": "HomeOrders",
+            "description": "从看板附近或订单页开始；处理出货结算和财报，读取明日预告，核对 Wiki 后提交库存足够的订单。已适配的工作台配方按缺口制作再提交，其余缺料订单保留并报告。最多20分钟；不刷新订单、不操作出货箱。"
         }
     ],
     "option": {
@@ -91,7 +112,7 @@
             "cases": [
                 {
                     "name": "Maximum",
-                    "label": "最大可制作数量",
+                    "label": "按餐桌缺口制作（扣除现有饼干）",
                     "pipeline_override": {
                         "HomeRoutine": {
                             "custom_action_param": {
@@ -159,87 +180,185 @@
                 }
             ]
         },
-        "CookieCandidate": {
+        "GameLaunch": {
             "type": "switch",
-            "label": "候选：小份波波饼 · 小麦×4，饱腹+25",
+            "label": "连接前自动启动游戏",
             "default_case": "On",
             "cases": [
                 {
                     "name": "On",
-                    "label": "纳入候选",
-                    "pipeline_override": {
-                        "RecipePolicy": {
-                            "attach": {
-                                "Cookie": true
-                            }
-                        }
-                    }
+                    "label": "开启"
                 },
                 {
                     "name": "Off",
-                    "label": "排除",
-                    "pipeline_override": {
-                        "RecipePolicy": {
-                            "attach": {
-                                "Cookie": false
-                            }
-                        }
-                    }
+                    "label": "关闭（手动启动）"
                 }
             ]
         },
-        "PopcornCandidate": {
-            "type": "switch",
-            "label": "候选：惊奇爆谷 · 玉米×6，饱腹+10",
-            "default_case": "On",
-            "cases": [
+        "GameLaunchPath": {
+            "type": "input",
+            "label": "游戏安装路径",
+            "description": "填写官方启动器 launcher.exe 路径或游戏安装根目录。助手通过官方启动器进入游戏，遇到登录或验证码时需要手动处理。",
+            "inputs": [
                 {
-                    "name": "On",
-                    "label": "纳入候选",
-                    "pipeline_override": {
-                        "RecipePolicy": {
-                            "attach": {
-                                "Popcorn": true
-                            }
-                        }
-                    }
-                },
-                {
-                    "name": "Off",
-                    "label": "排除",
-                    "pipeline_override": {
-                        "RecipePolicy": {
-                            "attach": {
-                                "Popcorn": false
-                            }
-                        }
-                    }
+                    "name": "path",
+                    "label": "路径",
+                    "default": "E:\\AzurPromilia bilibili"
                 }
             ]
         },
-        "RecipePriority": {
+        "GameLaunchTimeout": {
+            "type": "input",
+            "label": "等待游戏窗口",
+            "inputs": [
+                {
+                    "name": "seconds",
+                    "label": "最长等待秒数",
+                    "default": "120",
+                    "verify": "^[0-9]{2,3}$",
+                    "pattern_msg": "请输入 10～600 秒"
+                }
+            ]
+        },
+        "WorkbenchMode": {
             "type": "select",
-            "label": "候选优先顺序",
-            "default_case": "Cookie",
+            "label": "制作方式",
+            "default_case": "Preview",
             "cases": [
                 {
-                    "name": "Cookie",
-                    "label": "小份波波饼 → 惊奇爆谷",
+                    "name": "Preview",
+                    "label": "仅预览材料与顺序",
                     "pipeline_override": {
-                        "RecipePolicy": {
+                        "WorkbenchPolicy": {
                             "attach": {
-                                "priority": "Cookie"
+                                "execute": false
                             }
                         }
                     }
                 },
                 {
-                    "name": "Popcorn",
-                    "label": "惊奇爆谷 → 小份波波饼",
+                    "name": "Make",
+                    "label": "实际制作并收获",
                     "pipeline_override": {
-                        "RecipePolicy": {
+                        "WorkbenchPolicy": {
                             "attach": {
-                                "priority": "Popcorn"
+                                "execute": true
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "WorkbenchQuantity": {
+            "type": "input",
+            "label": "最终拥有的商品数量",
+            "inputs": [
+                {
+                    "name": "count",
+                    "label": "目标库存（不是追加数量）",
+                    "default": "1",
+                    "pipeline_type": "int",
+                    "verify": "^(?:[1-9]|10)$",
+                    "pattern_msg": "请输入 1～10"
+                }
+            ],
+            "pipeline_override": {
+                "WorkbenchPolicy": {
+                    "attach": {
+                        "quantity": "{count}"
+                    }
+                }
+            }
+        },
+        "WorkbenchItem": {
+            "type": "select",
+            "label": "目标商品",
+            "default_case": "all",
+            "cases": [
+                {
+                    "name": "all",
+                    "label": "全部已适配商品",
+                    "pipeline_override": {
+                        "WorkbenchPolicy": {
+                            "attach": {
+                                "item_id": "all"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "1200001",
+                    "label": "苗鸡木雕",
+                    "pipeline_override": {
+                        "WorkbenchPolicy": {
+                            "attach": {
+                                "item_id": "1200001"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "1200002",
+                    "label": "迷你狼神石俑",
+                    "pipeline_override": {
+                        "WorkbenchPolicy": {
+                            "attach": {
+                                "item_id": "1200002"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "1200017",
+                    "label": "浮音风铃",
+                    "pipeline_override": {
+                        "WorkbenchPolicy": {
+                            "attach": {
+                                "item_id": "1200017"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "1200027",
+                    "label": "密文环饰",
+                    "pipeline_override": {
+                        "WorkbenchPolicy": {
+                            "attach": {
+                                "item_id": "1200027"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "1200029",
+                    "label": "凝质晶球",
+                    "pipeline_override": {
+                        "WorkbenchPolicy": {
+                            "attach": {
+                                "item_id": "1200029"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "1200030",
+                    "label": "软绒围巾",
+                    "pipeline_override": {
+                        "WorkbenchPolicy": {
+                            "attach": {
+                                "item_id": "1200030"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "350000",
+                    "label": "软木板",
+                    "pipeline_override": {
+                        "WorkbenchPolicy": {
+                            "attach": {
+                                "item_id": "350000"
                             }
                         }
                     }
@@ -249,5 +368,24 @@
     },
     "global_option": [
         "WindowPin"
-    ]
+    ],
+    "pretask": {
+        "name": "LaunchGame",
+        "label": "启动游戏",
+        "description": "连接前启动蓝色星原；已运行时直接复用。启动失败详情见 debug/launcher.log。",
+        "exec": "../.venv/Scripts/python.exe",
+        "args": [
+            "-X",
+            "utf8",
+            "./agent/launcher.py"
+        ],
+        "controller": [
+            "Win32"
+        ],
+        "option": [
+            "GameLaunch",
+            "GameLaunchPath",
+            "GameLaunchTimeout"
+        ]
+    }
 }

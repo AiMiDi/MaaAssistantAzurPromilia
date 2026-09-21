@@ -436,5 +436,16 @@
             }
         ],
         "box_index": 1
+    },
+    "CloseMenuToScene": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "MenuPage"
+        ],
+        "action": "LongPressKey",
+        "key": 27,
+        "duration": 100,
+        "post_delay": 900
     }
 }

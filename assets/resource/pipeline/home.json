@@ -465,7 +465,7 @@
             },
             {
                 "recognition": "OCR",
-                "expected": "生产建筑|烹饪|耕作小屋|家园采集",
+                "expected": "生产建筑|烹饪|耕作小屋|家园采集|牧场",
                 "roi": [
                     530,
                     250,
@@ -876,5 +876,68 @@
                 ]
             }
         ]
+    },
+    "HomeFoodCookie": {
+        "recognition": "And",
+        "all_of": [
+            "HomeFoodPage",
+            {
+                "recognition": "TemplateMatch",
+                "template": "home/cookie_food.png",
+                "roi": [
+                    210,
+                    595,
+                    820,
+                    70
+                ],
+                "threshold": 0.88
+            }
+        ],
+        "box_index": 1
+    },
+    "HomeFoodSelectCookie": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "HomeFoodCookie"
+        ],
+        "box_index": 1,
+        "action": "Click",
+        "target": true,
+        "post_delay": 700
+    },
+    "HomeFoodSatiety": {
+        "recognition": "OCR",
+        "expected": "^\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            581,
+            169,
+            119,
+            26
+        ]
+    },
+    "HomeFoodCookieStock": {
+        "recognition": "OCR",
+        "expected": "^\\d+$",
+        "roi": [
+            231,
+            664,
+            78,
+            23
+        ],
+        "only_rec": true
+    },
+    "HomeCookingPlus": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "HomeCookingCookie"
+        ],
+        "action": "Click",
+        "target": [
+            1104,
+            555
+        ],
+        "post_delay": 100
     }
 }

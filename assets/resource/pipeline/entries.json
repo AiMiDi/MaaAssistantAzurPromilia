@@ -74,7 +74,7 @@
         "recognition": "DirectHit",
         "attach": {
             "Cookie": true,
-            "Popcorn": true,
+            "Popcorn": false,
             "priority": "Cookie"
         }
     },
@@ -87,6 +87,38 @@
         },
         "focus": {
             "Node.Action.Failed": "日常奖励任务未完成，请查看日志。"
+        }
+    },
+    "LaunchAndEnter": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "startup"
+        }
+    },
+    "WorkbenchTarget": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "workbench"
+        }
+    },
+    "WorkbenchPolicy": {
+        "recognition": "DirectHit",
+        "attach": {
+            "quantity": 1,
+            "execute": false,
+            "item_id": "all"
+        }
+    },
+    "HomeOrders": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "orders"
         }
     }
 }

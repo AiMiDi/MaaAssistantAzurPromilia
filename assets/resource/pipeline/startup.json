@@ -26,18 +26,37 @@
         },
         "recognition": "And",
         "all_of": [
-            "SupportedFrame",
+            "SupportedStartupFrame",
             {
                 "recognition": "OCR",
-                "expected": "^开始旅程$",
-                "roi": [
-                    480,
-                    560,
-                    320,
-                    90
-                ]
+                "expected": "^开始旅程$"
             }
         ],
         "box_index": 1
+    },
+    "SupportedStartupFrame": {
+        "recognition": "Custom",
+        "custom_recognition": "SupportedStartupFrame"
+    },
+    "ConfirmGameUpdate": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedStartupFrame",
+            {
+                "recognition": "OCR",
+                "expected": "需要更新\\s*[0-9.]+\\s*[KMGT]?[Bb]?\\s*的游戏资源"
+            },
+            {
+                "recognition": "OCR",
+                "expected": "^[A-Za-z\\s]*确定[A-Za-z\\s]*$"
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "post_delay": 1500,
+        "focus": {
+            "Node.Action.Starting": "确认游戏资源更新，等待下载完成。"
+        }
     }
 }
