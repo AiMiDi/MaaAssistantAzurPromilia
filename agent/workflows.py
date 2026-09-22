@@ -538,7 +538,7 @@ class RunRoutine(CustomAction):
                 policy = context.get_node_object("WorkbenchPolicy")
                 run_target(workflow, policy.attach if policy else {})
             elif kind == "rewards":
-                from rewards import training, travel, achievements
+                from rewards import training, travel, achievements, travelogue
                 workflow.deadline = time.monotonic() + 1200
                 workflow.mail()
                 workflow.signin()
@@ -547,7 +547,11 @@ class RunRoutine(CustomAction):
                 training(workflow)
                 travel(workflow)
                 achievements(workflow)
+                travelogue(workflow)
                 workflow.log("已适配奖励检查完成")
+            elif kind == "travelogue":
+                from rewards import travelogue
+                travelogue(workflow)
             elif kind == "achievements":
                 from rewards import achievements
                 achievements(workflow)

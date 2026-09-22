@@ -1,0 +1,175 @@
+{
+    "PassRewardsPage": {
+        "recognition": "And",
+        "all_of": [
+            "TraveloguePage",
+            {
+                "recognition": "OCR",
+                "expected": "基础版游记",
+                "roi": [
+                    40,
+                    440,
+                    110,
+                    45
+                ]
+            }
+        ]
+    },
+    "PassTasksPage": {
+        "recognition": "And",
+        "all_of": [
+            "TraveloguePage",
+            {
+                "recognition": "OCR",
+                "expected": "日常任务",
+                "roi": [
+                    50,
+                    400,
+                    115,
+                    45
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "周常任务",
+                "roi": [
+                    50,
+                    465,
+                    115,
+                    45
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "本期任务",
+                "roi": [
+                    50,
+                    530,
+                    115,
+                    45
+                ]
+            }
+        ]
+    },
+    "PassOpenRewards": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "TraveloguePage"
+        ],
+        "action": "Click",
+        "target": [
+            545,
+            699
+        ],
+        "post_delay": 1000
+    },
+    "PassOpenTasks": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "TraveloguePage"
+        ],
+        "action": "Click",
+        "target": [
+            749,
+            699
+        ],
+        "post_delay": 1000
+    },
+    "PassClaimAll": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "PassRewardsPage",
+            {
+                "recognition": "OCR",
+                "expected": "^一键领取$",
+                "roi": [
+                    1090,
+                    553,
+                    150,
+                    40
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            1160,
+            575
+        ],
+        "post_delay": 1000
+    },
+    "PassDaily": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "PassTasksPage"
+        ],
+        "action": "Click",
+        "target": [
+            115,
+            423
+        ],
+        "post_delay": 1000
+    },
+    "PassWeekly": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "PassTasksPage"
+        ],
+        "action": "Click",
+        "target": [
+            115,
+            484
+        ],
+        "post_delay": 1000
+    },
+    "PassPeriod": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "PassTasksPage"
+        ],
+        "action": "Click",
+        "target": [
+            115,
+            554
+        ],
+        "post_delay": 1000
+    },
+    "PassTaskStatus": {
+        "recognition": "OCR",
+        "expected": "^(领取|前往|进行中|已领取)$",
+        "roi": [
+            185,
+            554,
+            420,
+            39
+        ],
+        "order_by": "Horizontal"
+    },
+    "PassLevel": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "expected": "^\\d+$",
+        "roi": [
+            77,
+            310,
+            48,
+            39
+        ]
+    },
+    "PassExperience": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "expected": "^\\d+\\s*/\\s*600$",
+        "roi": [
+            143,
+            317,
+            91,
+            20
+        ]
+    }
+}

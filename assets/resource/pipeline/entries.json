@@ -155,5 +155,12 @@
         "custom_action_param": {
             "kind": "rewards"
         }
+    },
+    "ClaimTravelogue": {
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "travelogue"
+        }
     }
 }

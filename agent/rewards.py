@@ -224,3 +224,98 @@ def achievements(w):
     else:
         raise RuntimeError('成就奖励领取超过上限')
     w.navigate('MenuPage')
+
+
+def pass_progress(w, image):
+    level = w.reco('PassLevel', image)
+    if not level or not re.fullmatch(r'\d+', level.best_result.text):
+        raise RuntimeError('无法读取游记等级')
+    xp, cap = w.counter('PassExperience', image)
+    if cap != 600 or not 0 <= xp <= cap:
+        raise RuntimeError('游记经验数值异常')
+    return int(level.best_result.text), xp
+
+
+def pass_first_status(w, image):
+    result = w.reco('PassTaskStatus', image)
+    if not result or not result.filtered_results:
+        raise RuntimeError('未识别到游记首张任务卡状态')
+    row = min(result.filtered_results, key=lambda item: item.box[0])
+    if row.box[0] > 310:
+        raise RuntimeError('游记首张任务卡不可见')
+    return row
+
+
+def pass_level_rewards(w):
+    w.act('PassOpenRewards')
+    w.wait_for(['PassRewardsPage'])
+    if not w.reco('PassClaimAll', w.frame()):
+        w.log('游记没有可领取等级奖励')
+        return
+    w.act('PassClaimAll')
+    w.wait_for(['RewardPopup'])
+    w.act('RewardPopup')
+    w.wait_for(['PassRewardsPage'])
+    deadline = time.monotonic() + 8
+    while time.monotonic() < deadline:
+        image = w.frame()
+        if w.reco('PassRewardsPage', image) and not w.reco('PassClaimAll', image):
+            w.log('游记等级奖励已领取，确认一键领取入口消失')
+            return
+        time.sleep(0.3)
+    raise RuntimeError('游记等级奖励领取后入口仍存在')
+
+
+def travelogue(w):
+    if not w.reco('TraveloguePage', w.frame()):
+        w.navigate('MenuPage')
+        w.act('OpenF2')
+        w.wait_for(['TraveloguePage'])
+    pass_level_rewards(w)
+    w.act('PassOpenTasks')
+    w.wait_for(['PassTasksPage'])
+    claims = 0
+    for node, label, y in [('PassDaily', '日常', 423), ('PassWeekly', '周常', 484), ('PassPeriod', '本期', 554)]:
+        w.act(node)
+        image = w.frame()
+        panel = image[y-20:y+20,68:162].astype('int16')
+        if np.mean((panel[:,:,0] - panel[:,:,2] > 25) & (panel[:,:,0] > 130)) < 0.25:
+            raise RuntimeError('未确认游记任务分页已选中：' + label)
+        while True:
+            image = w.frame()
+            if not w.reco('PassTasksPage', image):
+                raise RuntimeError('游记任务页面已变化')
+            row = pass_first_status(w, image)
+            if row.text != '领取':
+                w.log('游记' + label + '任务首项为' + row.text + '，停止向后翻页')
+                break
+            if claims >= 40:
+                raise RuntimeError('游记任务领取超过上限')
+            before = pass_progress(w, image)
+            x,y0,width,height = row.box
+            w.context.override_pipeline({'PassClaimTask':dict(
+                recognition='And', all_of=['SupportedFrame','PassTasksPage',ocr('^领取$',[x-3,y0-3,width+6,height+6])],
+                action='Click',target=[x+width//2,y0+height//2],post_delay=800)})
+            w.act('PassClaimTask')
+            deadline = time.monotonic() + 10
+            stable = 0
+            while time.monotonic() < deadline:
+                image = w.frame()
+                if w.reco('RewardPopup', image):
+                    w.act('RewardPopup')
+                    continue
+                if w.reco('PassTasksPage', image):
+                    after = pass_progress(w, image)
+                    status = pass_first_status(w, image)
+                    changed = after > before or status.text != '领取'
+                    stable = stable + 1 if changed else 0
+                    if stable >= 2:
+                        break
+                time.sleep(0.3)
+            else:
+                raise RuntimeError('游记任务领取后未确认进度变化，停止重复点击')
+            claims += 1
+            w.log('游记' + label + '任务奖励已确认领取')
+    pass_level_rewards(w)
+    w.navigate('MenuPage')
+    w.log(f'普罗米利亚游记检查完成，任务领取操作 {claims} 次')

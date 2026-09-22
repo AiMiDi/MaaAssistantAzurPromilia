@@ -167,3 +167,77 @@ def test_training_accepts_batch_claim_that_reorders_instead_of_marking_same_row(
     training(w)
     assert w.actions.count('EventTrainingClaim')==1
     assert 'EventTrainingScrollDown' not in w.actions
+
+
+@pytest.mark.parametrize('status', ['前往','进行中','已领取'])
+def test_pass_sorted_status_returns_first_card(monkeypatch,status):
+    from rewards import pass_first_status
+    first=SimpleNamespace(text=status,box=[210,560,40,20])
+    result=SimpleNamespace(filtered_results=[SimpleNamespace(text='领取',box=[350,560,40,20]),first])
+    w=SimpleNamespace(reco=lambda *args:result)
+    assert pass_first_status(w,None) is first
+
+
+def test_pass_refuses_missing_first_card():
+    from rewards import pass_first_status
+    result=SimpleNamespace(filtered_results=[SimpleNamespace(text='领取',box=[350,560,40,20])])
+    with pytest.raises(RuntimeError,match='首张任务卡不可见'):
+        pass_first_status(SimpleNamespace(reco=lambda *args:result),None)
+
+
+def test_pass_level_claim_verifies_disappearing_button():
+    from rewards import pass_level_rewards
+    actions=[]
+    claimed=False
+    def act(node):
+        nonlocal claimed
+        actions.append(node)
+        if node=='PassClaimAll':claimed=True
+    w=SimpleNamespace(frame=lambda:None,act=act,reco=lambda node,image: not claimed if node=='PassClaimAll' else True,wait_for=lambda *args:None,log=lambda *args:None)
+    pass_level_rewards(w)
+    pass_level_rewards(w)
+    assert actions.count('PassClaimAll')==1
+    assert actions.count('RewardPopup')==1
+
+
+def test_pass_no_task_rewards_still_checks_levels_before_and_after(monkeypatch):
+    from rewards import travelogue
+    events=[]
+    image=np.full((720,1280,3),[220,150,80],dtype=np.uint8)
+    first=SimpleNamespace(text='进行中',box=[210,560,40,20])
+    monkeypatch.setattr('rewards.pass_level_rewards',lambda w:events.append('levels'))
+    w=SimpleNamespace(frame=lambda:image,reco=lambda node,image:SimpleNamespace(filtered_results=[first]) if node=='PassTaskStatus' else True,act=events.append,wait_for=lambda *args:None,navigate=lambda *args:None,log=lambda *args:None)
+    travelogue(w)
+    assert events[0]==events[-1]=='levels'
+    assert all(node in events for node in ['PassDaily','PassWeekly','PassPeriod'])
+    assert 'PassClaimTask' not in events
+
+
+@pytest.mark.parametrize('confirmed',[True,False])
+def test_pass_task_claim_requires_progress_before_retry(monkeypatch,confirmed):
+    from rewards import travelogue
+    clock=iter(range(1000))
+    monkeypatch.setattr('rewards.time.monotonic',lambda:next(clock))
+    monkeypatch.setattr('rewards.time.sleep',lambda _:None)
+    monkeypatch.setattr('rewards.pass_level_rewards',lambda _:None)
+    actions=[]
+    selected='PassDaily'
+    claimed=False
+    image=np.full((720,1280,3),[220,150,80],dtype=np.uint8)
+    def act(node):
+        nonlocal selected,claimed
+        actions.append(node)
+        if node in ('PassDaily','PassWeekly','PassPeriod'):selected=node
+        if node=='PassClaimTask':claimed=True
+    def reco(node,image):
+        if node=='RewardPopup':return None
+        if node=='PassTaskStatus':
+            status='领取' if selected=='PassDaily' and not (confirmed and claimed) else '前往'
+            return SimpleNamespace(filtered_results=[SimpleNamespace(text=status,box=[210,560,40,20])])
+        return True
+    monkeypatch.setattr('rewards.pass_progress',lambda *args:(14,400 if claimed and confirmed else 100))
+    w=SimpleNamespace(frame=lambda:image,reco=reco,act=act,context=SimpleNamespace(override_pipeline=lambda _:None),wait_for=lambda *args:None,navigate=lambda *args:None,log=lambda *args:None)
+    if confirmed:travelogue(w)
+    else:
+        with pytest.raises(RuntimeError,match='停止重复点击'):travelogue(w)
+    assert actions.count('PassClaimTask')==1
