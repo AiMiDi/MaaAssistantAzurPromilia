@@ -57,6 +57,36 @@
             ]
         },
         {
+            "name": "ClaimRewards",
+            "label": "一键领取 · 已适配奖励",
+            "entry": "ClaimRewards",
+            "description": "依次检查邮件、签到、日常、周常、小小侠客养成记、星之旅录及成就积分阶段奖励；遇到未识别页面停止并报告。请勿与对应单项重复勾选。"
+        },
+        {
+            "name": "ClaimWeekly",
+            "label": "周常任务与活跃度奖励（测试）",
+            "entry": "ClaimWeekly",
+            "description": "检查顶部可领取任务及20～100活跃宝箱；当前已验证无奖励分支，实际达标领取待验证。"
+        },
+        {
+            "name": "ClaimTraining",
+            "label": "活动 · 小小侠客养成记",
+            "entry": "ClaimTraining",
+            "description": "检查已解锁天数页的首屏领取按钮，一次领取后重新确认状态。当前未涵盖35任务最终角色奖励。"
+        },
+        {
+            "name": "ClaimTravel",
+            "label": "星之旅录 · 任务与阶段奖励",
+            "entry": "ClaimTravel",
+            "description": "逐分类和章节检查排序后的首行任务；未完成或已领取即停止下翻。进入及任务领取后独立检查50～300积分阶段奖励，190档已实领。"
+        },
+        {
+            "name": "ClaimAchievements",
+            "label": "成就 · 积分阶段奖励（测试）",
+            "entry": "ClaimAchievements",
+            "description": "读取左下角当前/目标积分，仅达标时领取阶段奖励并核对下一档进度。135/200未达标跳过已实测，达标领取待验证。"
+        },
+        {
             "name": "ClaimMail",
             "label": "邮件 · 全部领取",
             "entry": "ClaimMail",
@@ -72,7 +102,7 @@
             "name": "ClaimDaily",
             "label": "日常任务与活跃度奖励（测试）",
             "entry": "ClaimDaily",
-            "description": "检查日常列表至底部，只点击领取按钮；检查20～100活跃宝箱，验证获得弹窗。不点击前往，不执行战斗。"
+            "description": "按默认排序检查顶部可领取任务，领取一次后重新识别；遇到已领取或未完成即停止下翻，另行检查20～100活跃宝箱。"
         },
         {
             "name": "HomeCollect",

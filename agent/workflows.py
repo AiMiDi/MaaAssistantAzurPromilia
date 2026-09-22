@@ -79,7 +79,7 @@ class Workflow:
         deadline = time.monotonic() + timeout
         updates = starts = 0
         self.log("等待游戏加载；识别到资源更新时自动确认")
-        ready_pages = ["HomeHud", "MenuPage", "HomeCorePage", "HomeBuildingsPage", "WorkbenchPage", "FurnacePage",
+        ready_pages = ["HomeHud", "MenuPage", "HomeCorePage", "HomeBuildingsPage", "WorkbenchPage", "FurnacePage", "TripPage", "AchievementPage",
                        "HomeCookingPage", "HomeSeedsPage", "HomeFoodPage", "MailPage", "DailyPage", "SignInPage",
                        "HomeFarmDetailPage", "HomeCollectionPage", "HomeLevelUp", "MailEmptyDialog",
                        "QuestPage", "TraveloguePage", "ActivityPage", "RewardPopup",
@@ -141,6 +141,8 @@ class Workflow:
 
     def navigate(self, target):
         routes = [
+            ("AchievementPage", "AchievementClose"),
+            ("TripPage", "TripClose"),
             ("OrderBoardPage", "OrderClose"),
             ("OrderMerchantPage", "OrderClose"),
             ("WorkbenchPage", "WorkbenchClose"),
@@ -399,11 +401,23 @@ class Workflow:
             time.sleep(0.4)
         raise TimeoutError("签到卡片仍可领取或页面未稳定")
 
-    def activity(self, image):
-        result = self.reco("DailyActivity", image)
-        if not result or not re.fullmatch(r"\d{1,3}", result.best_result.text):
+    def activity(self, image, weekly=False):
+        prefix = "Weekly" if weekly else "Daily"
+        label_text = "周活跃度" if weekly else "日活跃度"
+        result = self.reco(prefix + "Activity", image)
+        if not result:
+            label = self.context.run_recognition("DailyActivityLabel", image, {
+                "DailyActivityLabel": {"recognition":"OCR", "expected":"^"+label_text+"$", "roi":[235,630,180,35]}})
+            if label and label.hit:
+                left = label.best_result.box[0]
+                if 268 <= left <= 355:
+                    result = self.context.run_recognition("DailyActivityDigit", image, {
+                        "DailyActivityDigit": {"recognition":"OCR", "expected":r"^\d{1,3}$",
+                            "only_rec":True, "roi":[239,636,left-243,40]}})
+                    if not result or not result.hit: result = None
+        if not result or not re.fullmatch(r"\d{1,3}(?:\s*/\s*100)?", result.best_result.text):
             raise RuntimeError("无法读取日常活跃度")
-        value = int(result.best_result.text)
+        value = int(result.best_result.text.split("/")[0].strip())
         if value > 100:
             raise RuntimeError("日常活跃度数值超出预期范围")
         return value
@@ -414,15 +428,15 @@ class Workflow:
                                       min(54, 605 - max(108, button_box.y - 15))]}})
         return result.best_result.text if result and result.hit else None
 
-    def verify_daily_claim(self, before, title, button_box):
+    def verify_daily_claim(self, before, title, button_box, weekly=False):
         deadline = time.monotonic() + 8
         stable_change = 0
         while time.monotonic() < deadline:
             image = self.frame()
-            if not self.reco("DailyActive", image):
+            if not self.reco("WeeklyActive" if weekly else "DailyActive", image):
                 time.sleep(0.3)
                 continue
-            after = self.activity(image)
+            after = self.activity(image, weekly=True) if weekly else self.activity(image)
             if after > before:
                 return
             # At the cap, verify that the claimed row moves away, or its
@@ -439,57 +453,59 @@ class Workflow:
             time.sleep(0.3)
         raise RuntimeError("日常任务点击后未观察到活跃度增加或已领取状态")
 
-    def daily(self):
+    def daily(self, weekly=False):
+        prefix = "Weekly" if weekly else "Daily"
+        label = "周常" if weekly else "日常"
         self.navigate("MenuPage")
         self.act("OpenF5")
         self.wait_for(["DailyPage"])
-        self.act("DailySelectTab")
-        self.wait_for(["DailyActive"])
-        self.act("DailyScrollUp")
-        scrolls = claims = 0
+        self.act(prefix + "SelectTab")
+        self.wait_for([prefix + "Active"])
+        self.act(prefix + "ScrollUp")
+        claims = 0
         while True:
             image = self.frame()
-            if not self.reco("DailyActive", image):
+            if not self.reco("WeeklyActive" if weekly else "DailyActive", image):
                 raise RuntimeError("日常活跃页面发生变化")
-            pending = self.reco("DailyClaim", image)
+            pending = self.reco(prefix + "Claim", image)
             if pending:
                 if claims >= 20:
                     raise RuntimeError("日常领取次数超限")
-                before = self.activity(image)
+                before = self.activity(image, weekly=True) if weekly else self.activity(image)
                 title = self.row_text(image, pending.box)
                 if not title:
                     raise RuntimeError("无法识别待领取的日常任务名称")
-                self.act("DailyClaim")
-                self.verify_daily_claim(before, title, pending.box)
+                self.act(prefix + "Claim")
+                if weekly:
+                    self.verify_daily_claim(before, title, pending.box, weekly=True)
+                else:
+                    self.verify_daily_claim(before, title, pending.box)
                 claims += 1
-                self.log("日常任务奖励已领取：" + title)
+                self.log(label + "任务奖励已领取：" + title)
                 # Claiming can reorder rows above the current viewport.
-                self.act("DailyScrollUp")
-                scrolls = 0
+                self.act(prefix + "ScrollUp")
                 continue
-            if self.reco("DailyAtBottom", image):
+            # Available entries are sorted first. Do not scan past a stopped row.
+            if self.reco(prefix + "StoppedRow", image):
                 break
-            if scrolls >= 16:
-                raise RuntimeError("未确认日常列表底部，停止滚动")
-            self.act("DailyScroll")
-            scrolls += 1
+            raise RuntimeError("无法确认日常首屏任务状态，停止操作")
         chests = 0
         for level in (20, 40, 60, 80, 100):
             image = self.frame()
-            node = "DailyChest" + str(level)
-            if self.activity(image) < level or not self.reco(node, image):
+            node = prefix + "Chest" + str(level)
+            if (self.activity(image, weekly=True) if weekly else self.activity(image)) < level or not self.reco(node, image):
                 continue
             self.act(node)
             self.wait_for(["RewardPopup"])
             self.act("RewardPopup")
-            self.wait_for(["DailyActive"])
+            self.wait_for([prefix + "Active"])
             if self.reco(node, self.frame()):
                 raise RuntimeError("活跃宝箱领取后仍显示可领取")
             chests += 1
             self.log(f"{level} 活跃度宝箱已领取")
         self.act("CloseDaily")
         self.wait_for(["MenuPage"])
-        self.log(f"日常奖励检查完成：领取任务 {claims} 项，宝箱 {chests} 个")
+        self.log(f"{label}奖励检查完成：领取任务 {claims} 项，宝箱 {chests} 个")
 
 
 class RunRoutine(CustomAction):
@@ -521,6 +537,28 @@ class RunRoutine(CustomAction):
                 from workbench import run_target
                 policy = context.get_node_object("WorkbenchPolicy")
                 run_target(workflow, policy.attach if policy else {})
+            elif kind == "rewards":
+                from rewards import training, travel, achievements
+                workflow.deadline = time.monotonic() + 1200
+                workflow.mail()
+                workflow.signin()
+                workflow.daily()
+                workflow.daily(weekly=True)
+                training(workflow)
+                travel(workflow)
+                achievements(workflow)
+                workflow.log("已适配奖励检查完成")
+            elif kind == "achievements":
+                from rewards import achievements
+                achievements(workflow)
+            elif kind == "travel_rewards":
+                workflow.deadline = time.monotonic() + 900
+                from rewards import travel
+                travel(workflow)
+            elif kind == "training":
+                workflow.deadline = time.monotonic() + 600
+                from rewards import training
+                training(workflow)
             elif kind == "home":
                 workflow.home(params)
             elif kind == "collect":
@@ -532,6 +570,8 @@ class RunRoutine(CustomAction):
                 workflow.mail()
             elif kind == "signin":
                 workflow.signin()
+            elif kind == "weekly":
+                workflow.daily(weekly=True)
             elif kind == "daily":
                 workflow.daily()
             else:

@@ -120,5 +120,40 @@
         "custom_action_param": {
             "kind": "orders"
         }
+    },
+    "ClaimTraining": {
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "training"
+        }
+    },
+    "ClaimTravel": {
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "travel_rewards"
+        }
+    },
+    "ClaimWeekly": {
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "weekly"
+        }
+    },
+    "ClaimAchievements": {
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "achievements"
+        }
+    },
+    "ClaimRewards": {
+        "action": "Custom",
+        "custom_action": "RunRoutine",
+        "custom_action_param": {
+            "kind": "rewards"
+        }
     }
 }

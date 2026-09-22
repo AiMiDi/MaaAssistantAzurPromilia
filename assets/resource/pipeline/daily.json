@@ -151,12 +151,12 @@
     },
     "DailyActivity": {
         "recognition": "OCR",
-        "expected": "^[0-9]{1,3}$",
+        "expected": "^\\d{1,3}(?:\\s*/\\s*100)?$",
         "roi": [
-            240,
+            238,
             635,
-            57,
-            43
+            145,
+            45
         ]
     },
     "DailyTaskLabel": {
@@ -338,5 +338,284 @@
             658
         ],
         "post_delay": 300
+    },
+    "DailyStoppedRow": {
+        "recognition": "OCR",
+        "expected": "^(已领取|未完成|进行中|前往)$",
+        "roi": [
+            1090,
+            108,
+            100,
+            470
+        ],
+        "order_by": "Vertical"
+    },
+    "WeeklyClaim": {
+        "action": "LongPress",
+        "post_delay": 1000,
+        "duration": 120,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "WeeklyActive",
+                    {
+                        "recognition": "OCR",
+                        "expected": "^领取$",
+                        "roi": [
+                            1090,
+                            108,
+                            90,
+                            470
+                        ],
+                        "order_by": "Vertical"
+                    }
+                ],
+                "box_index": 1
+            }
+        ],
+        "box_index": 1
+    },
+    "WeeklyScrollUp": {
+        "action": "Scroll",
+        "target": [
+            930,
+            405
+        ],
+        "dy": 6000,
+        "post_delay": 800,
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            {
+                "recognition": "And",
+                "all_of": [
+                    "WeeklyActive"
+                ]
+            }
+        ],
+        "box_index": 1
+    },
+    "WeeklySelectTab": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "DailyPage"
+        ],
+        "action": "Click",
+        "target": [
+            730,
+            31
+        ],
+        "post_delay": 700
+    },
+    "WeeklyActivity": {
+        "recognition": "OCR",
+        "expected": "^\\d{1,3}(?:\\s*/\\s*100)?$",
+        "roi": [
+            238,
+            635,
+            145,
+            45
+        ]
+    },
+    "WeeklyStoppedRow": {
+        "recognition": "OCR",
+        "expected": "^(已领取|未完成|进行中|前往)$",
+        "roi": [
+            1090,
+            108,
+            100,
+            470
+        ],
+        "order_by": "Vertical"
+    },
+    "WeeklyChest20": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WeeklyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    544,
+                    639,
+                    16,
+                    17
+                ],
+                "lower": [
+                    220,
+                    50,
+                    50
+                ],
+                "upper": [
+                    255,
+                    170,
+                    180
+                ],
+                "count": 8
+            }
+        ],
+        "action": "Click",
+        "target": [
+            531,
+            658
+        ],
+        "post_delay": 300
+    },
+    "WeeklyChest40": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WeeklyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    685,
+                    639,
+                    16,
+                    17
+                ],
+                "lower": [
+                    220,
+                    50,
+                    50
+                ],
+                "upper": [
+                    255,
+                    170,
+                    180
+                ],
+                "count": 8
+            }
+        ],
+        "action": "Click",
+        "target": [
+            672,
+            658
+        ],
+        "post_delay": 300
+    },
+    "WeeklyChest60": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WeeklyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    825,
+                    639,
+                    16,
+                    17
+                ],
+                "lower": [
+                    220,
+                    50,
+                    50
+                ],
+                "upper": [
+                    255,
+                    170,
+                    180
+                ],
+                "count": 8
+            }
+        ],
+        "action": "Click",
+        "target": [
+            812,
+            658
+        ],
+        "post_delay": 300
+    },
+    "WeeklyChest80": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WeeklyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    965,
+                    639,
+                    16,
+                    17
+                ],
+                "lower": [
+                    220,
+                    50,
+                    50
+                ],
+                "upper": [
+                    255,
+                    170,
+                    180
+                ],
+                "count": 8
+            }
+        ],
+        "action": "Click",
+        "target": [
+            952,
+            658
+        ],
+        "post_delay": 300
+    },
+    "WeeklyChest100": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "WeeklyActive",
+            {
+                "recognition": "ColorMatch",
+                "method": 4,
+                "roi": [
+                    1105,
+                    639,
+                    16,
+                    17
+                ],
+                "lower": [
+                    220,
+                    50,
+                    50
+                ],
+                "upper": [
+                    255,
+                    170,
+                    180
+                ],
+                "count": 8
+            }
+        ],
+        "action": "Click",
+        "target": [
+            1092,
+            658
+        ],
+        "post_delay": 300
+    },
+    "WeeklyActive": {
+        "recognition": "And",
+        "all_of": [
+            "DailyPage",
+            {
+                "recognition": "OCR",
+                "expected": "^周活跃度$",
+                "roi": [
+                    260,
+                    630,
+                    95,
+                    40
+                ]
+            }
+        ]
     }
 }

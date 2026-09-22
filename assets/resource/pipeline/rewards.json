@@ -1,0 +1,430 @@
+{
+    "EventTrainingPage": {
+        "recognition": "And",
+        "all_of": [
+            "ActivityPage",
+            {
+                "recognition": "OCR",
+                "expected": "小小侠客养成记",
+                "roi": [
+                    20,
+                    340,
+                    235,
+                    60
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "完成35个任务",
+                "roi": [
+                    275,
+                    115,
+                    500,
+                    35
+                ]
+            }
+        ]
+    },
+    "EventTrainingClaim": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "EventTrainingPage",
+            {
+                "recognition": "OCR",
+                "expected": "^领取$",
+                "roi": [
+                    790,
+                    200,
+                    90,
+                    380
+                ],
+                "order_by": "Vertical"
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "post_delay": 700
+    },
+    "EventTrainingClaimText": {
+        "recognition": "OCR",
+        "expected": "^领取$",
+        "roi": [
+            790,
+            200,
+            90,
+            380
+        ],
+        "order_by": "Vertical"
+    },
+    "EventTrainingTabs": {
+        "recognition": "OCR",
+        "expected": "^第[1-7]天$",
+        "roi": [
+            290,
+            145,
+            590,
+            40
+        ],
+        "order_by": "Horizontal"
+    },
+    "EventTrainingScrollUp": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "EventTrainingPage"
+        ],
+        "action": "Swipe",
+        "begin": [
+            600,
+            260
+        ],
+        "end": [
+            600,
+            565
+        ],
+        "duration": 500,
+        "post_delay": 650
+    },
+    "EventTrainingScrollDown": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "EventTrainingPage"
+        ],
+        "action": "Swipe",
+        "begin": [
+            600,
+            550
+        ],
+        "end": [
+            600,
+            315
+        ],
+        "duration": 500,
+        "post_delay": 650
+    },
+    "TripPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "^星之旅录$",
+                "roi": [
+                    70,
+                    18,
+                    125,
+                    40
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "旅录积分",
+                "roi": [
+                    135,
+                    658,
+                    135,
+                    40
+                ]
+            }
+        ]
+    },
+    "TripOpenEvent": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "ActivityPage",
+            {
+                "recognition": "OCR",
+                "expected": "星之旅录",
+                "roi": [
+                    20,
+                    565,
+                    240,
+                    70
+                ]
+            }
+        ],
+        "box_index": 2,
+        "action": "Click",
+        "target": true,
+        "post_delay": 1000
+    },
+    "TripGo": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "ActivityPage",
+            {
+                "recognition": "OCR",
+                "expected": "星之旅录",
+                "roi": [
+                    950,
+                    205,
+                    270,
+                    50
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "前往查看",
+                "roi": [
+                    990,
+                    547,
+                    150,
+                    45
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            1045,
+            570
+        ],
+        "post_delay": 1500
+    },
+    "TripTabs": {
+        "recognition": "OCR",
+        "expected": "^(星轨旅录|筑梦据点|大冒险家|旅伴手记|试炼之路)$",
+        "roi": [
+            135,
+            105,
+            112,
+            310
+        ],
+        "order_by": "Vertical"
+    },
+    "TripStage": {
+        "recognition": "OCR",
+        "expected": ".+",
+        "roi": [
+            345,
+            88,
+            380,
+            32
+        ]
+    },
+    "TripCompletedCounter": {
+        "recognition": "OCR",
+        "expected": ".*\\d+\\s*/\\s*\\d+.*",
+        "roi": [
+            285,
+            105,
+            315,
+            475
+        ],
+        "order_by": "Vertical"
+    },
+    "TripClose": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "TripPage"
+        ],
+        "action": "Click",
+        "target": [
+            44,
+            36
+        ],
+        "post_delay": 1100
+    },
+    "TripPrevious": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "TripPage",
+            {
+                "recognition": "OCR",
+                "expected": "星轨旅录",
+                "roi": [
+                    430,
+                    88,
+                    210,
+                    33
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            283,
+            105
+        ],
+        "post_delay": 1100
+    },
+    "TripNext": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "TripPage",
+            {
+                "recognition": "OCR",
+                "expected": "星轨旅录",
+                "roi": [
+                    430,
+                    88,
+                    210,
+                    33
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            783,
+            105
+        ],
+        "post_delay": 1100
+    },
+    "TripScrollUp": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "TripPage"
+        ],
+        "action": "Swipe",
+        "begin": [
+            600,
+            260
+        ],
+        "end": [
+            600,
+            560
+        ],
+        "duration": 500,
+        "post_delay": 800
+    },
+    "TripScrollDown": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "TripPage"
+        ],
+        "action": "Swipe",
+        "begin": [
+            600,
+            545
+        ],
+        "end": [
+            600,
+            340
+        ],
+        "duration": 500,
+        "post_delay": 800
+    },
+    "TripPoints": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "expected": "^\\d+\\s*/\\s*300$",
+        "roi": [
+            151,
+            636,
+            102,
+            38
+        ]
+    },
+    "AchievementPage": {
+        "recognition": "And",
+        "all_of": [
+            {
+                "recognition": "OCR",
+                "expected": "^成就$",
+                "roi": [
+                    80,
+                    20,
+                    110,
+                    35
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "近期成就",
+                "roi": [
+                    1170,
+                    30,
+                    110,
+                    70
+                ]
+            },
+            {
+                "recognition": "OCR",
+                "expected": "彼方天地",
+                "roi": [
+                    400,
+                    140,
+                    150,
+                    80
+                ]
+            }
+        ]
+    },
+    "AchievementOpen": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "MenuPage",
+            {
+                "recognition": "OCR",
+                "expected": "成就",
+                "roi": [
+                    1070,
+                    650,
+                    80,
+                    55
+                ]
+            }
+        ],
+        "action": "Click",
+        "target": [
+            1107,
+            677
+        ],
+        "post_delay": 1500
+    },
+    "AchievementPoints": {
+        "recognition": "OCR",
+        "expected": "^\\+?\\d+\\s*/\\s*\\d+$",
+        "roi": [
+            117,
+            672,
+            65,
+            19
+        ],
+        "only_rec": true
+    },
+    "AchievementClaim": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "AchievementPage",
+            "AchievementPoints"
+        ],
+        "action": "Click",
+        "target": [
+            145,
+            654
+        ],
+        "post_delay": 700
+    },
+    "AchievementClose": {
+        "recognition": "And",
+        "all_of": [
+            "SupportedFrame",
+            "AchievementPage"
+        ],
+        "action": "LongPressKey",
+        "key": 27,
+        "duration": 100,
+        "post_delay": 1200
+    },
+    "EventTrainingTotal": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "expected": "^\\d+\\s*/\\s*35$",
+        "roi": [
+            265,
+            627,
+            78,
+            36
+        ]
+    }
+}

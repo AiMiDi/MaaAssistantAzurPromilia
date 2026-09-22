@@ -382,14 +382,44 @@
                 ]
             },
             {
-                "recognition": "OCR",
-                "only_rec": true,
-                "expected": "^[Ff][1Il]$",
-                "roi": [
-                    890,
-                    51,
-                    20,
-                    17
+                "recognition": "Or",
+                "any_of": [
+                    {
+                        "recognition": "OCR",
+                        "only_rec": true,
+                        "expected": "^[Ff][1Il]$",
+                        "roi": [
+                            890,
+                            51,
+                            20,
+                            17
+                        ]
+                    },
+                    {
+                        "recognition": "And",
+                        "all_of": [
+                            {
+                                "recognition": "OCR",
+                                "expected": "家园中枢",
+                                "roi": [
+                                    1120,
+                                    450,
+                                    155,
+                                    60
+                                ]
+                            },
+                            {
+                                "recognition": "OCR",
+                                "expected": "离开家园",
+                                "roi": [
+                                    1120,
+                                    520,
+                                    155,
+                                    60
+                                ]
+                            }
+                        ]
+                    }
                 ]
             }
         ]
